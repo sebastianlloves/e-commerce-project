@@ -1,12 +1,9 @@
-import BarraNav from '../src/Components/BarraNav'
 import './App.css'
 
-function App() {
+export default function App() {
   return (
-    <>
-      <BarraNav />
-    </>
+    <h1 className="text-lg font-bold underline">
+      Hello world!
+    </h1>
   )
 }
-
-export default App
