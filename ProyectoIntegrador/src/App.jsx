@@ -1,9 +1,11 @@
-import './App.css'
-import { NavBar } from './Components/NavBar'
-
+import "./App.css";
+import { NavBar } from "./Components/NavBar";
 
 export default function App() {
   return (
-    <NavBar />
-  )
+    <>
+      <NavBar />
+      <h1 className="text-lg font-bold ">Hello world!</h1>
+    </>
+  );
 }
