@@ -1,6 +1,6 @@
 export const NavBar = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar container bg-gray-100 p-4 m-0 rounded-xl shadow-xl shadow-blue-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
