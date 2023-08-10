@@ -1,6 +1,6 @@
 function Logo() {
   return (
-    <div className="ml-4 flex lg:ml-0">
+    <div className="m-2 flex">
       <a href="#">
         <span className="sr-only">Your Company</span>
         <img
