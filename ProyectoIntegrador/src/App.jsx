@@ -6,7 +6,7 @@ import ListadoTarjetas from "./Components/ListadoTarjetas";
 
 export default function App() {
   return (
-    <div className="bg-white relative h-screen">
+    <div className="bg-white relative ">
       <NavBarPropio />
       {/* <NavBar /> */}
       <ListadoTarjetas/>
