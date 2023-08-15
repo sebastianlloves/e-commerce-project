@@ -12,7 +12,7 @@ export default function NavBarPropio() {
       >
         <Hamburguesa />
         <Logo />
-        <div className="flex justify-center h-full space-x-14  max-lg:hidden">
+        <div className="flex justify-center h-full space-x-6  max-lg:hidden">
           <BotonesMenu name_menu="Anteojos" />
           <BotonesMenu name_menu="Calzado" />
           <BotonesMenu name_menu="Jeans" />
