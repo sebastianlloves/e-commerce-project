@@ -2,7 +2,7 @@ import { useState } from "react"
 
 export default async function User({id}) {
     const resp = await fetch("https://jsonplaceholder.typicode.com/users")
-    const [users, setUsers] = useState(await resp.json())
+    const [users] = useState(await resp.json())
     const usuario = users.find( u => u.id == id)
 
 
