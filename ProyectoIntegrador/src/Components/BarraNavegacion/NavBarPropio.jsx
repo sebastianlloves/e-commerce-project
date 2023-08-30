@@ -2,6 +2,7 @@ import BotonesMenu from "./BotonesMenu";
 import Carrito from "./Carrito";
 import Hamburguesa from "./Hamburguesa";
 import Logo from "./Logo";
+import React from "react";
 
 export default function NavBarPropio() {
   return (
@@ -12,11 +13,11 @@ export default function NavBarPropio() {
       >
         <Hamburguesa />
         <Logo />
-        <div className="flex justify-center h-full space-x-6  max-lg:hidden">
-          <BotonesMenu nameMenu="Anteojos" />
-          <BotonesMenu nameMenu="Calzado" />
-          <BotonesMenu nameMenu="Jeans" />
-          <BotonesMenu nameMenu="Remeras" />
+        <div className="flex justify-center h-full space-x-6 text-slate-200 max-lg:hidden">
+          <BotonesMenu name_menu="Anteojos" />
+          <BotonesMenu name_menu="Calzado" />
+          <BotonesMenu name_menu="Jeans" />
+          <BotonesMenu name_menu="Remeras" />
         </div>
         <Carrito />
       </nav>
