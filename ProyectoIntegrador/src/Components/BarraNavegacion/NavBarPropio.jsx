@@ -13,10 +13,10 @@ export default function NavBarPropio() {
         <Hamburguesa />
         <Logo />
         <div className="flex justify-center h-full space-x-6  max-lg:hidden">
-          <BotonesMenu name_menu="Anteojos" />
-          <BotonesMenu name_menu="Calzado" />
-          <BotonesMenu name_menu="Jeans" />
-          <BotonesMenu name_menu="Remeras" />
+          <BotonesMenu nameMenu="Anteojos" />
+          <BotonesMenu nameMenu="Calzado" />
+          <BotonesMenu nameMenu="Jeans" />
+          <BotonesMenu nameMenu="Remeras" />
         </div>
         <Carrito/>
 
