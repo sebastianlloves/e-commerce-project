@@ -1,12 +1,4 @@
 import "./App.css";
-<<<<<<< HEAD
-import User from "./User.jsx";
-
-async function App() {
-
-  return (
-    <User id={1}/>
-=======
 import { useState } from "react";
 import { usersContext, useUsers, data} from './UsuariosContext'
 
@@ -50,7 +42,6 @@ function User({children}) {
       </p>
       {children}
     </div>
->>>>>>> 968e44c431533b7c65acd5bd4aef234f6c60feb7
   );
 }
 
