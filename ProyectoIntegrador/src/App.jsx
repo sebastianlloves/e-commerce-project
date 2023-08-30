@@ -1,16 +1,15 @@
 import "./App.css";
-// import NavBar from "./Components/BarraNavegacion/NavBar";
 import NavBarPropio from "./Components/BarraNavegacion/NavBarPropio.jsx";
-import ListadoTarjetas from "./Components/ListadoTarjetas";
-
+import { ProductsProvider } from "./Components/ProductsContext.jsx";
+// import ListadoTarjetas from "./Components/ListadoTarjetas.jsx";
+import ArticlesList from "./Components/Carrito/ArticlesList";
 
 export default function App() {
   return (
-    <div className="bg-white relative ">
+    <ProductsProvider>
       <NavBarPropio />
-      {/* <NavBar /> */}
-      <ListadoTarjetas/>
-      
-    </div>  
+      {/* <ListadoTarjetas /> */}
+      <ArticlesList />
+    </ProductsProvider>
   );
 }

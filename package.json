@@ -8,5 +8,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.6.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.8.1"
+  }
 }

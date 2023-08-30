@@ -5,7 +5,7 @@ import Logo from "./Logo";
 
 export default function NavBarPropio() {
   return (
-    <header className="fixed w-full z-10 bg-slate-900">
+    <header className="w-full z-10 bg-slate-900">
       <nav
         aria-label="Top"
         className=" flex justify-between mx-auto h-16 max-w-7xl px-8 items-center"
@@ -18,11 +18,8 @@ export default function NavBarPropio() {
           <BotonesMenu name_menu="Jeans" />
           <BotonesMenu name_menu="Remeras" />
         </div>
-        <Carrito/>
-
+        <Carrito />
       </nav>
     </header>
-
-    
   );
 }

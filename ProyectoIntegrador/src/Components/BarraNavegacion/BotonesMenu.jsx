@@ -1,4 +1,4 @@
-function BotonesMenu({name_menu}) {
+function BotonesMenu({ name_menu }) {
   return (
     <a
       key="Menu A"
