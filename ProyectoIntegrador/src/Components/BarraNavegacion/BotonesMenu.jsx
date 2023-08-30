@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 function BotonesMenu(props) {
   const {nameMenu} = props
+=======
+function BotonesMenu({ name_menu }) {
+>>>>>>> 968e44c431533b7c65acd5bd4aef234f6c60feb7
   return (
     <a
       key="Menu A"

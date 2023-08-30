@@ -1,10 +1,8 @@
-import { useState } from 'react'
-import { Bars3Icon } from '@heroicons/react/24/outline'
-
+import { useState } from "react";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 
 function Hamburguesa() {
-
-    const [, setOpen] = useState(false)
+  const [, setOpen] = useState(false);
   return (
     <button
       type="button"
