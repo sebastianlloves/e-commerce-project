@@ -1,18 +1,23 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
+const UsersContext = createContext(null);
 
-export const usersContext = createContext(null)
-
-export function useUsers(){
-    return useContext(usersContext)
+export function useUsers() {
+  return useContext(UsersContext)[0];
 }
 
+export function UsersProvider({ children }) {
+  const [users] = useState(data);
+  const [idActivo] = useState(8);
 
+  return (
+    <UsersContext.Provider value={[users, idActivo]}>
+      {children}
+    </UsersContext.Provider>
+  )
+}
 
-
-
-
-export const data = [
+const data = [
   {
     id: 1,
     name: "Leanne Graham",
