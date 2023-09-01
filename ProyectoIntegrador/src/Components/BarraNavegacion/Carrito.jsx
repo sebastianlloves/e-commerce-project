@@ -1,6 +1,9 @@
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
+import { useCart } from "../CartProvider";
 
 function Carrito() {
+  const cart = useCart()
+
   return (
     <div className="flow-root">
       <a href="#" className="group mx-2 flex items-center p-2">
@@ -9,7 +12,7 @@ function Carrito() {
           aria-hidden="true"
         />
         <span className="ml-2 text-sm font-medium text-slate-300 group-hover:text-slate-50">
-          0
+          {cart.reduce(((previo, actual) => previo + actual.quantity), 0)}
         </span>
         <span className="sr-only">items in cart, view bag</span>
       </a>

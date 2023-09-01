@@ -1,28 +1,49 @@
-import {React, useState} from 'react'
+import { React} from "react";
+import { useCart, useSetCart } from "../CartProvider";
 
-function SelectorCantidad({ quantity }) {
-  const [cantidad, setCantidad] = useState(quantity);
+function SelectorCantidad({ id }) {
+  const cart = useCart();
+  const setCart = useSetCart();
+  const item = cart.find((objCart) => objCart.id === id);
 
-  function handleAumentar (){
-    setCantidad(cantidad + 1)
+  function handleAumentar() {
+    setCart(
+      cart.map(objCart => {
+        if (objCart.id === id) {
+          return { id: id, quantity: objCart.quantity + 1 };
+        }
+        return objCart;
+      })
+    );
   }
 
   function handleDisminuir() {
-    setCantidad(cantidad - 1);
+    setCart(
+      cart.map(objCart => {
+        if (objCart.id === id) {
+          return { id: id, quantity: objCart.quantity - 1 };
+        }
+        return objCart;
+      })
+    );
   }
 
+  console.log(useCart());
+
   return (
-    <div className="flex content-center">
+    <div className="flex  items-center">
       <button
-        className="mx-2 rounded-md border-2 border-slate-300 px-2 duration-100 hover:border-slate-500 disabled:bg-slate-100 disabled:hover:border-slate-300"
+        className="lin mx-2 rounded-md border-2 border-slate-300 px-2 text-xl font-bold text-slate-400 duration-100 hover:border-slate-500 disabled:border-0 disabled:bg-slate-100 disabled:hover:border-slate-300"
         onClick={handleDisminuir}
-        disabled={cantidad === 1}
+        disabled={item.quantity === 1}
       >
         -
       </button>
-      <div>{cantidad}</div>
+      <div className="border-1 border-transparent px-2 text-base font-bold text-slate-700">
+        {item.quantity}
+      </div>
       <button
-        className="mx-2 rounded-md border-2 border-slate-300 px-2 duration-100 hover:border-slate-500"
+        className="lin mx-2 rounded-md border-2 border-slate-300 px-2 text-xl font-bold text-slate-400 duration-100 hover:border-slate-500"
         onClick={handleAumentar}
       >
         +
@@ -31,4 +52,4 @@ function SelectorCantidad({ quantity }) {
   );
 }
 
-export default SelectorCantidad
+export default SelectorCantidad;
