@@ -24,7 +24,7 @@ export function useSetCart() {
 }
 
 const carritoInicial = [
-  { id: 1, quantity: 1 },
-  { id: 3, quantity: 3 },
-  { id: 4, quantity: 2 },
+  { id: 1, quantity: 1, colorSelected: "Gris Oscuro", sizeSelected: "XL" },
+  { id: 3, quantity: 3, colorSelected: "Marrón", sizeSelected: "M" },
+  { id: 4, quantity: 2, colorSelected: "Azul Marino", sizeSelected: "L" },
 ];

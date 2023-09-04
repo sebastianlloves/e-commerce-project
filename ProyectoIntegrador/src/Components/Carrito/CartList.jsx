@@ -1,31 +1,34 @@
 import React from "react";
-import { useProducts } from "../ProductsContext";
-import { useCart } from "../CartProvider";
+import { useProducts } from "../Products/ProductsProvider";
+import { useCart, useSetCart } from "./CartProvider";
 import SelectorCantidad from "./SelectorCantidad";
 
 function CartList() {
-  const products = useProducts()
-  const articlesCart = useCart().map((objCart) => {
-    return {
-      ...products.find((p) => p.id === objCart.id),
-      quantity: objCart.quantity,
-    };
-  });
-
-  console.log(articlesCart)
+  const products = useProducts();
+  const articlesCart = useCart().map(
+    ({ id, quantity, colorSelected, sizeSelected }) => {
+      return {
+        ...products.find((p) => p.id === id),
+        quantity,
+        colorSelected,
+        sizeSelected,
+      };
+    }
+  );
+  const setCart = useSetCart();
 
   return (
     <div className="m-auto flex w-3/4 max-w-screen-lg flex-col py-6">
-      <h2 className="mb-14 text-center text-5xl font-bold text-slate-800">
+      <h2 className="mb-10 text-center text-5xl font-bold text-slate-800">
         Carrito
       </h2>
       <ul role="list" className="m-6 divide-y divide-gray-200">
         {articlesCart.map((item) => (
           <li key={item.id} className="flex py-6">
-            <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+            <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border-transparent shadow-md shadow-stone-300">
               <img
-                src={item.imageSrc}
-                alt={item.imageAlt}
+                src={item.images[0].src}
+                alt={item.images[0].alt}
                 className="h-full w-full object-cover object-center"
               />
             </div>
@@ -33,25 +36,34 @@ function CartList() {
             <div className="ml-4 flex flex-1 flex-col">
               <div>
                 <div className="flex justify-between text-base font-medium text-gray-900">
-                  <h3 className="w-1/4">
-                    <a href={item.href}>{item.name}</a>
-                  </h3>
-
+                  <div className="w-1/4 ">
+                    <h3 className="mb-4">
+                      <a href={item.href}>{item.name}</a>
+                    </h3>
+                    <p className="mt-1 text-sm font-normal text-gray-500">
+                      Color: {item.colorSelected}
+                    </p>
+                    <p className="mt-1 text-sm font-normal text-gray-500">
+                      Talle: {item.sizeSelected}
+                    </p>
+                  </div>
                   <div className="flex w-1/4 items-center justify-center text-sm">
                     <SelectorCantidad id={item.id} />
-                    <div className="mx-4 flex">
-                      <button
-                        type="button"
-                        className="font-medium text-indigo-600 hover:text-indigo-500"
-                      >
-                        Remover
-                      </button>
-                    </div>
+                    <div className="mx-4 flex"></div>
                   </div>
-
-                  <p className="ml-4">{item.price}</p>
+                  <div className="flex flex-col items-center">
+                    <p>{item.price}</p>
+                    <button
+                      type="button"
+                      className="pt-8 font-medium text-indigo-600 hover:text-indigo-500"
+                      onClick={() =>
+                        setCart(articlesCart.filter((aC) => aC.id !== item.id))
+                      }
+                    >
+                      Remover
+                    </button>
+                  </div>
                 </div>
-                <p className="mt-1 text-sm text-gray-500">{item.color}</p>
               </div>
             </div>
           </li>

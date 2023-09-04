@@ -1,19 +1,28 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import NavBarPropio from "./Components/BarraNavegacion/NavBarPropio.jsx";
-import { ProductsProvider } from "./Components/ProductsContext.jsx";
-import { CartProvider } from "./Components/CartProvider";
-import ListadoTarjetas from "./Components/ListadoTarjetas.jsx";
+import { ProductsProvider } from "./Components/Products/ProductsProvider.jsx";
+import { CartProvider } from "./Components/Carrito/CartProvider";
+import ListadoTarjetas from "./Components/Products/ListadoTarjetas.jsx";
 import CartList from "./Components/Carrito/CartList";
+import ProductDetail from "./Components/Products/ProductDetail";
 
 export default function App() {
   return (
-    <ProductsProvider>
-      <CartProvider>
-        <NavBarPropio />
-        <ListadoTarjetas />
-        <CartList className="bg-slate-50" />
-      </CartProvider>
-    </ProductsProvider>
+    <BrowserRouter>
+      <ProductsProvider>
+        <CartProvider>
+          <NavBarPropio />
+          <ProductDetail id={3} />
+          {/* <Routes>
+            <Route path="/" element={<ListadoTarjetas />}>
+            </Route>
+            <Route path="/cart" element={<CartList />} />
+            <ProductDetail></ProductDetail>
+          </Routes> */}
+        </CartProvider>
+      </ProductsProvider>
+    </BrowserRouter>
   );
 }

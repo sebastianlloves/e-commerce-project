@@ -1,5 +1,5 @@
 import Tarjeta from "./Tarjeta";
-import { useProducts } from "./ProductsContext";
+import { useProducts } from "./ProductsProvider";
 import React from "react";
 
 function ListadoTarjetas() {

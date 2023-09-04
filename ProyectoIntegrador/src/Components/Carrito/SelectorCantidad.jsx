@@ -1,5 +1,5 @@
-import { React} from "react";
-import { useCart, useSetCart } from "../CartProvider";
+import { React } from "react";
+import { useCart, useSetCart } from "./CartProvider";
 
 function SelectorCantidad({ id }) {
   const cart = useCart();
@@ -8,9 +8,9 @@ function SelectorCantidad({ id }) {
 
   function handleAumentar() {
     setCart(
-      cart.map(objCart => {
+      cart.map((objCart) => {
         if (objCart.id === id) {
-          return { id: id, quantity: objCart.quantity + 1 };
+          return { ...objCart, quantity: objCart.quantity + 1 };
         }
         return objCart;
       })
@@ -19,9 +19,9 @@ function SelectorCantidad({ id }) {
 
   function handleDisminuir() {
     setCart(
-      cart.map(objCart => {
+      cart.map((objCart) => {
         if (objCart.id === id) {
-          return { id: id, quantity: objCart.quantity - 1 };
+          return { ...objCart, quantity: objCart.quantity - 1 };
         }
         return objCart;
       })
@@ -33,7 +33,7 @@ function SelectorCantidad({ id }) {
   return (
     <div className="flex  items-center">
       <button
-        className="lin mx-2 rounded-md border-2 border-slate-300 px-2 text-xl font-bold text-slate-400 duration-100 hover:border-slate-500 disabled:border-0 disabled:bg-slate-100 disabled:hover:border-slate-300"
+        className="mx-2 rounded-md border-2 border-slate-300 px-2 text-xl font-bold text-slate-400 duration-100 hover:border-slate-500 disabled:border-0 disabled:bg-slate-100 disabled:hover:border-slate-300"
         onClick={handleDisminuir}
         disabled={item.quantity === 1}
       >
@@ -43,7 +43,7 @@ function SelectorCantidad({ id }) {
         {item.quantity}
       </div>
       <button
-        className="lin mx-2 rounded-md border-2 border-slate-300 px-2 text-xl font-bold text-slate-400 duration-100 hover:border-slate-500"
+        className="mx-2 rounded-md border-2 border-slate-300 px-2 text-xl font-bold text-slate-400 duration-100 hover:border-slate-500"
         onClick={handleAumentar}
       >
         +
