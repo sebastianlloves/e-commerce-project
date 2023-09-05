@@ -30,7 +30,7 @@ const data_products = [
       },
     ],
     price: "$ 35000",
-    colors: [{ name: "Gris Oscuro", class: "bg-gray-900" }],
+    colors: [{ name: "Gris Oscuro", clase: "bg-gray-900", selectedClass: 'ring-gray-400' }],
     sizes: [
       { name: "XXS", inStock: false },
       { name: "XS", inStock: true },
@@ -42,8 +42,7 @@ const data_products = [
       { name: "3XL", inStock: true },
     ],
   description: `Non labore nihil autem tempore accusantium ullam ipsam repudiandae, voluptate, doloremque quia itaque veniam excepturi dignissimos minima eaque numquam impedit. Qui fuga id nihil inventore commodi voluptates incidunt accusamus perspiciatis.
-  Minima magni harum est quaerat sapiente odio exercitationem voluptatibus dolorum ipsum, quas incidunt aut voluptate in quidem, tempore praesentium assumenda quis deserunt ducimus commodi. Animi eveniet nisi pariatur labore a!
-  Reiciendis pariatur molestiae laborum cumque? Cupiditate dolor, hic aspernatur fugit aut, dignissimos magni temporibus at sit error, ad corporis quibusdam possimus nemo sunt eveniet? Quo nemo velit minima eaque odio.`
+  Minima magni harum est quaerat sapiente odio exercitationem voluptatibus dolorum ipsum, quas incidunt aut voluptate in quidem, tempore praesentium assumenda quis deserunt ducimus commodi. Animi eveniet nisi pariatur labore a!`
   },
   {
     id: 2,
@@ -56,7 +55,7 @@ const data_products = [
       },
     ],
     price: "$ 72600",
-    colors: [{ name: "Negro", class: "bg-slate-900" }],
+    colors: [{ name: "Negro", clase: "bg-slate-900", selectedClass: 'ring-gray-400' }],
     sizes: [
       { name: "XXS", inStock: false },
       { name: "XS", inStock: true },
@@ -68,8 +67,7 @@ const data_products = [
       { name: "3XL", inStock: true },
     ],
   description: `Non labore nihil autem tempore accusantium ullam ipsam repudiandae, voluptate, doloremque quia itaque veniam excepturi dignissimos minima eaque numquam impedit. Qui fuga id nihil inventore commodi voluptates incidunt accusamus perspiciatis.
-  Minima magni harum est quaerat sapiente odio exercitationem voluptatibus dolorum ipsum, quas incidunt aut voluptate in quidem, tempore praesentium assumenda quis deserunt ducimus commodi. Animi eveniet nisi pariatur labore a!
-  Reiciendis pariatur molestiae laborum cumque? Cupiditate dolor, hic aspernatur fugit aut, dignissimos magni temporibus at sit error, ad corporis quibusdam possimus nemo sunt eveniet? Quo nemo velit minima eaque odio.`
+  Minima magni harum est quaerat sapiente odio exercitationem voluptatibus dolorum ipsum, quas incidunt aut voluptate in quidem, tempore praesentium assumenda quis deserunt ducimus commodi. Animi eveniet nisi pariatur labore a!`
   },
   {
     id: 3,
@@ -82,7 +80,7 @@ const data_products = [
       },
     ],
     price: "$ 61730",
-    colors: [{ name: "Marrón", class: "bg-amber-950" }],
+    colors: [{ name: "Marrón", clase: "bg-amber-950", selectedClass: 'ring-gray-400' }],
     sizes: [
       { name: "XXS", inStock: false },
       { name: "XS", inStock: true },
@@ -94,8 +92,7 @@ const data_products = [
       { name: "3XL", inStock: true },
     ],
   description: `Non labore nihil autem tempore accusantium ullam ipsam repudiandae, voluptate, doloremque quia itaque veniam excepturi dignissimos minima eaque numquam impedit. Qui fuga id nihil inventore commodi voluptates incidunt accusamus perspiciatis.
-  Minima magni harum est quaerat sapiente odio exercitationem voluptatibus dolorum ipsum, quas incidunt aut voluptate in quidem, tempore praesentium assumenda quis deserunt ducimus commodi. Animi eveniet nisi pariatur labore a!
-  Reiciendis pariatur molestiae laborum cumque? Cupiditate dolor, hic aspernatur fugit aut, dignissimos magni temporibus at sit error, ad corporis quibusdam possimus nemo sunt eveniet? Quo nemo velit minima eaque odio.`
+  Minima magni harum est quaerat sapiente odio exercitationem voluptatibus dolorum ipsum, quas incidunt aut voluptate in quidem, tempore praesentium assumenda quis deserunt ducimus commodi. Animi eveniet nisi pariatur labore a!`
   },
   {
     id: 4,
@@ -108,7 +105,7 @@ const data_products = [
       },
     ],
     price: "$ 16200",
-    colors: [{ name: "Azul Marino", class: "bg-sky-800" }],
+    colors: [{ name: "Azul Marino", clase: "bg-sky-800", selectedClass: 'ring-gray-400' }],
     sizes: [
       { name: "XXS", inStock: false },
       { name: "XS", inStock: true },
@@ -120,7 +117,6 @@ const data_products = [
       { name: "3XL", inStock: true },
     ],
   description: `Non labore nihil autem tempore accusantium ullam ipsam repudiandae, voluptate, doloremque quia itaque veniam excepturi dignissimos minima eaque numquam impedit. Qui fuga id nihil inventore commodi voluptates incidunt accusamus perspiciatis.
-  Minima magni harum est quaerat sapiente odio exercitationem voluptatibus dolorum ipsum, quas incidunt aut voluptate in quidem, tempore praesentium assumenda quis deserunt ducimus commodi. Animi eveniet nisi pariatur labore a!
-  Reiciendis pariatur molestiae laborum cumque? Cupiditate dolor, hic aspernatur fugit aut, dignissimos magni temporibus at sit error, ad corporis quibusdam possimus nemo sunt eveniet? Quo nemo velit minima eaque odio.`
+  Minima magni harum est quaerat sapiente odio exercitationem voluptatibus dolorum ipsum, quas incidunt aut voluptate in quidem, tempore praesentium assumenda quis deserunt ducimus commodi. Animi eveniet nisi pariatur labore a!`
   },
 ];
