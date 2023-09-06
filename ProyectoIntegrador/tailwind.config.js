@@ -3,19 +3,8 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {
-      animation: {
-        shine: "shine 1s",
-      },
-      keyframes: {
-        shine: {
-          "100%": { left: "125%" },
-        },
-      },
-    },
+    extend: {},
   },
-  corePlugins: {
-    aspectRatio: false,
-  },
-  plugins: [require("@tailwindcss/aspect-ratio")],
+  plugins: [require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms'),],
 };
