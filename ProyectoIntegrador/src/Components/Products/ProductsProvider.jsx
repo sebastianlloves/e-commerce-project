@@ -55,7 +55,7 @@ const data_products = [
       },
     ],
     price: "$ 72600",
-    colors: [{ name: "Negro", clase: "bg-slate-900", selectedClass: 'ring-gray-400' }],
+    colors: [{ name: "Negro", clase: "bg-slate-900", selectedClass: 'ring-gray-400' }, { name: "Gris Oscuro", clase: "bg-gray-900", selectedClass: 'ring-gray-400' }, { name: "Marrón", clase: "bg-amber-950", selectedClass: 'ring-gray-400' }],
     sizes: [
       { name: "XXS", inStock: false },
       { name: "XS", inStock: true },

@@ -5,8 +5,10 @@ import { RadioGroup } from "@headlessui/react";
 
 const ProductDetail = ({ id }) => {
   const product = useProducts().find((p) => p.id === id);
-  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState(null);
+
+  console.log(selectedColor)
 
   return (
     <div className="mx-auto my-10 grid max-w-screen-xl grid-cols-1 grid-rows-3 gap-x-10 border-2 lg:grid-cols-2 lg:grid-rows-2">
@@ -36,8 +38,12 @@ const ProductDetail = ({ id }) => {
 
         <form className="mt-10">
           <div>
-            <h3 className="text-sm font-medium text-gray-900">Color</h3>
-            <BotonColor />
+            <h3 className="text-base font-semibold text-gray-900">Color: <span className=" font-normal">{selectedColor.name}</span></h3>
+            <div className="my-4 flex">
+              {product.colors.map( color => {
+                return <BotonColor key={color.name} color={color} selectedColor={selectedColor} setSelectedColor={setSelectedColor}/>
+              })}
+            </div>
           </div>
         </form>
       </div>
