@@ -5,21 +5,17 @@ import SelectorCantidad from "./SelectorCantidad";
 import { Link } from "react-router-dom";
 
 function CartList() {
-  
-  
-  
   return (
     <div className="m-auto flex w-3/4 max-w-screen-lg flex-col py-6">
-      <h2 className="mb-10 text-center text-5xl font-bold text-slate-800">
-        Carrito
+      <h2 className="my-10 text-left text-3xl font-semibold text-slate-800 uppercase">
+        Mi Carrito
       </h2>
-      {useCart().length > 0 && <ListaCompra />}
-      
+      {useCart().length > 0 ? <ListaCompra /> : <EmptyCart />}
     </div>
   );
 }
 
-function ListaCompra(){
+function ListaCompra() {
   const products = useProducts();
   const articlesCart = useCart().map(
     ({ id, quantity, colorSelected, sizeSelected }) => {
@@ -32,7 +28,7 @@ function ListaCompra(){
     }
   );
   const setCart = useSetCart();
-  
+
   return (
     <div>
       <ul role="list" className="m-6 divide-y divide-gray-200">
@@ -127,6 +123,14 @@ function ListaCompra(){
         </div>
       </div>
     </div>
+  );
+}
+
+function EmptyCart() {
+  return (
+    <h2 className="my-10 text-center text-lg font-semibold text-slate-800">
+      Tu carrito está vacío
+    </h2>
   );
 }
 
