@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { useProducts } from "./ProductsProvider";
+import { useParams } from "react-router-dom";
+import { useCart, useSetCart } from "../Carrito/CartProvider";
 
-const ProductDetail = ({ id }) => {
+const ProductDetail = ({idP}) => {
+  const id = idP || Number(useParams().id) 
   const product = useProducts().find((p) => p.id === id);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState(
     product.sizes.filter((s) => s.inStock)[0]
   );
 
-  console.log(selectedSize);
 
   return (
     <div className="mx-auto grid h-full min-h-0 max-w-screen-xl grid-cols-1 gap-x-10 bg-slate-50 py-12 lg:grid-cols-2">
@@ -73,7 +75,13 @@ const ProductDetail = ({ id }) => {
             </div>
           </div>
 
-          <BotonComprar />
+          <BotonComprar
+            selectedSize={selectedSize}
+            selectedColor={selectedColor}
+            setSelectedColor={setSelectedColor}
+            setSelectedSize={setSelectedSize}
+            id={id}
+          />
         </form>
       </div>
     </div>
@@ -109,7 +117,7 @@ function BotonTalle({ size, selectedSize, setSelectedSize }) {
         <button
           className={`m-3 h-14 w-14 rounded-md border border-gray-300 bg-slate-50 text-sm font-medium text-gray-600 shadow-indigo-300 duration-300 active:-translate-y-0.5 ${
             selectedSize === size
-              ? "shadow-md ring-1 ring-indigo-600 ring-offset-2"
+              ? "shadow-md scale-110 shadow-indigo-200 border-indigo-500"
               : "shadow-sm"
           }`}
           onClick={(e) => {
@@ -124,17 +132,51 @@ function BotonTalle({ size, selectedSize, setSelectedSize }) {
   }
 }
 
-function BotonComprar() {
+function BotonComprar({
+  selectedSize,
+  selectedColor,
+  setSelectedColor,
+  setSelectedSize,
+  id
+}) {
+  const cart = useCart();
+  const setCart = useSetCart();
+  const quantity = 1
+
+  function handleClick(e) {
+    e.preventDefault();
+    !cart.find(
+      (objCart) =>
+        objCart.id == id &&
+        objCart.colorSelected == selectedColor.name &&
+        objCart.sizeSelected == selectedSize.name
+    ) ? 
+    setCart([...cart, {id:id, quantity:quantity, colorSelected: selectedColor.name, sizeSelected: selectedSize.name}])
+    :
+    setCart(cart.map(objCart => {
+      if(objCart.id == id && 
+        objCart.colorSelected == selectedColor.name &&
+        objCart.sizeSelected == selectedSize.name) {
+          return {
+            id: objCart.id,
+            quantity: objCart.quantity + quantity,
+            colorSelected: objCart.colorSelected,
+            sizeSelected: objCart.sizeSelected,
+          };
+        }
+      return objCart
+    }))
+
+  }
+
   return (
     <div>
       <button
         type="submit"
-        className="mx-auto mt-20 flex w-1/2 min-w-fit items-center justify-center rounded-md border border-transparent bg-sky-800 px-8 py-3 text-base font-medium text-white shadow-sm shadow-sky-300 duration-300 hover:bg-sky-900 focus:ring-1 focus:ring-sky-700 focus:ring-offset-2  focus:-translate-y-0.5 focus:shadow-md lg:w-full"
-        onClick={(e) => {
-          e.preventDefault();
-        }}
+        className="mx-auto mt-20 flex w-1/2 min-w-fit items-center justify-center rounded-md border border-transparent bg-sky-800 px-8 py-3 text-base font-medium text-white shadow-md shadow-sky-200 duration-300 hover:bg-sky-900 active:-translate-y-0.5 active:shadow-lg active:ring-1  active:ring-sky-700 active:ring-offset-2 lg:w-full"
+        onClick={handleClick}
       >
-        Comprar
+        Agregar al carrito
       </button>
     </div>
   );

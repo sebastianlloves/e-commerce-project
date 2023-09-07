@@ -6,7 +6,6 @@ import { ProductsProvider } from "./Components/Products/ProductsProvider.jsx";
 import { CartProvider } from "./Components/Carrito/CartProvider";
 import ListadoTarjetas from "./Components/Products/ListadoTarjetas.jsx";
 import CartList from "./Components/Carrito/CartList";
-import ProductDetailTailwind from "./Components/Products/ProductDetailTailwind";
 import ProductDetail from "./Components/Products/ProductDetail";
 
 export default function App() {
@@ -15,12 +14,18 @@ export default function App() {
       <ProductsProvider>
         <CartProvider>
           <NavBarPropio />
-          <ProductDetail id={2} />
-          {/* <Routes>
-            <Route path="/" element={<ListadoTarjetas />}>
-            </Route>
+          <Routes>
+            <Route path="/" element={<ListadoTarjetas />}></Route>
+            <Route
+              path="/product/:id"
+              element={<ProductDetail /* idp={3} */ />}
+            />
+            <Route
+              path="/cart/product/:id"
+              element={<ProductDetail /* idp={3} */ />}
+            />
             <Route path="/cart" element={<CartList />} />
-          </Routes> */}
+          </Routes>
         </CartProvider>
       </ProductsProvider>
     </BrowserRouter>
