@@ -1,15 +1,24 @@
 import { React } from "react";
 import { useCart, useSetCart } from "./CartProvider";
 
-function SelectorCantidad({ id }) {
+function SelectorCantidad({ id, colorSelected, sizeSelected }) {
   const cart = useCart();
   const setCart = useSetCart();
-  const item = cart.find((objCart) => objCart.id === id);
+  const item = cart.find(
+    (objCart) =>
+      objCart.id === id &&
+      objCart.colorSelected === colorSelected &&
+      objCart.sizeSelected === sizeSelected
+  );
 
   function handleAumentar() {
     setCart(
       cart.map((objCart) => {
-        if (objCart.id === id) {
+        if (
+          objCart.id === id &&
+          objCart.colorSelected === colorSelected &&
+          objCart.sizeSelected === sizeSelected
+        ) {
           return { ...objCart, quantity: objCart.quantity + 1 };
         }
         return objCart;
@@ -20,7 +29,11 @@ function SelectorCantidad({ id }) {
   function handleDisminuir() {
     setCart(
       cart.map((objCart) => {
-        if (objCart.id === id) {
+        if (
+          objCart.id === id &&
+          objCart.colorSelected === colorSelected &&
+          objCart.sizeSelected === sizeSelected
+        ) {
           return { ...objCart, quantity: objCart.quantity - 1 };
         }
         return objCart;

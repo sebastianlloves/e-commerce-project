@@ -2,8 +2,24 @@ import React from "react";
 import { useProducts } from "../Products/ProductsProvider";
 import { useCart, useSetCart } from "./CartProvider";
 import SelectorCantidad from "./SelectorCantidad";
+import { Link } from "react-router-dom";
 
 function CartList() {
+  
+  
+  
+  return (
+    <div className="m-auto flex w-3/4 max-w-screen-lg flex-col py-6">
+      <h2 className="mb-10 text-center text-5xl font-bold text-slate-800">
+        Carrito
+      </h2>
+      {useCart().length > 0 && <ListaCompra />}
+      
+    </div>
+  );
+}
+
+function ListaCompra(){
   const products = useProducts();
   const articlesCart = useCart().map(
     ({ id, quantity, colorSelected, sizeSelected }) => {
@@ -16,29 +32,32 @@ function CartList() {
     }
   );
   const setCart = useSetCart();
-
+  
   return (
-    <div className="m-auto flex w-3/4 max-w-screen-lg flex-col py-6">
-      <h2 className="mb-10 text-center text-5xl font-bold text-slate-800">
-        Carrito
-      </h2>
+    <div>
       <ul role="list" className="m-6 divide-y divide-gray-200">
         {articlesCart.map((item) => (
-          <li key={item.id} className="flex py-6">
-            <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border-transparent shadow-md shadow-stone-300">
+          <li
+            key={`${item.id}-${item.colorSelected}-${item.sizeSelected}`}
+            className="flex py-6"
+          >
+            <Link
+              to={`../product/${item.id}`}
+              className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border-transparent shadow-md shadow-stone-300"
+            >
               <img
                 src={item.images[0].src}
                 alt={item.images[0].alt}
                 className="h-full w-full object-cover object-center"
               />
-            </div>
+            </Link>
 
             <div className="ml-4 flex flex-1 flex-col">
               <div>
                 <div className="flex justify-between text-base font-medium text-gray-900">
                   <div className="w-1/4 ">
                     <h3 className="mb-4">
-                      <a href={item.href}>{item.name}</a>
+                      <Link to={`../product/${item.id}`}>{item.name}</Link>
                     </h3>
                     <p className="mt-1 text-sm font-normal text-gray-500">
                       Color: {item.colorSelected}
@@ -48,7 +67,11 @@ function CartList() {
                     </p>
                   </div>
                   <div className="flex w-1/4 items-center justify-center text-sm">
-                    <SelectorCantidad id={item.id} />
+                    <SelectorCantidad
+                      id={item.id}
+                      colorSelected={item.colorSelected}
+                      sizeSelected={item.sizeSelected}
+                    />
                     <div className="mx-4 flex"></div>
                   </div>
                   <div className="flex flex-col items-center">
@@ -57,7 +80,14 @@ function CartList() {
                       type="button"
                       className="pt-8 font-medium text-indigo-600 hover:text-indigo-500"
                       onClick={() =>
-                        setCart(articlesCart.filter((aC) => aC.id !== item.id))
+                        setCart(
+                          articlesCart.filter(
+                            (aC) =>
+                              aC.id !== item.id ||
+                              aC.colorSelected !== item.colorSelected ||
+                              aC.sizeSelected !== item.sizeSelected
+                          )
+                        )
                       }
                     >
                       Remover
