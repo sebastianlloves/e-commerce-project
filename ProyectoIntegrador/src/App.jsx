@@ -15,7 +15,7 @@ export default function App() {
       <ProductsProvider>
         <CartProvider>
           <NavBarPropio />
-          <ProductDetail id={4} />
+          <ProductDetail id={2} />
           {/* <Routes>
             <Route path="/" element={<ListadoTarjetas />}>
             </Route>
