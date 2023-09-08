@@ -2,15 +2,24 @@ import { useState } from "react";
 import { useProducts } from "./ProductsProvider";
 import { useParams } from "react-router-dom";
 import { useCart, useSetCart } from "../Carrito/CartProvider";
+import {
+  useProductSelection,
+  useProductSelectionDispatch,
+} from "./ProductSelectionProvider";
 
-const ProductDetail = ({idP}) => {
-  const id = idP || Number(useParams().id) 
+const ProductDetail = () => {
+  const id = Number(useParams().id);
   const product = useProducts().find((p) => p.id === id);
+  const productSelection = useProductSelection();
+  const dispatch = useProductSelectionDispatch();
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState(
     product.sizes.filter((s) => s.inStock)[0]
   );
 
+  console.log(useProductSelection());
+  console.log("Carrito");
+  console.log(useCart());
 
   return (
     <div className="mx-auto grid h-full min-h-0 max-w-screen-xl grid-cols-1 gap-x-10 bg-slate-50 py-12 lg:grid-cols-2">
@@ -42,18 +51,12 @@ const ProductDetail = ({idP}) => {
           <div>
             {/* Selección Color */}
             <h3 className="text-base font-semibold text-gray-900">
-              Color: <span className=" font-normal">{selectedColor.name}</span>
+              Color:{" "}
+              <span className=" font-normal">{productSelection.color.name}</span>
             </h3>
             <div className="my-4 flex">
               {product.colors.map((color) => {
-                return (
-                  <BotonColor
-                    key={color.name}
-                    color={color}
-                    selectedColor={selectedColor}
-                    setSelectedColor={setSelectedColor}
-                  />
-                );
+                return <BotonColor key={color.name} color={color} />;
               })}
             </div>
           </div>
@@ -63,25 +66,12 @@ const ProductDetail = ({idP}) => {
             <h3 className="text-base font-semibold text-gray-900">Talle</h3>
             <div className="my-4 flex flex-wrap">
               {product.sizes.map((size) => {
-                return (
-                  <BotonTalle
-                    key={size.name}
-                    size={size}
-                    selectedSize={selectedSize}
-                    setSelectedSize={setSelectedSize}
-                  />
-                );
+                return <BotonTalle key={size.name} size={size} />;
               })}
             </div>
           </div>
 
-          <BotonComprar
-            selectedSize={selectedSize}
-            selectedColor={selectedColor}
-            setSelectedColor={setSelectedColor}
-            setSelectedSize={setSelectedSize}
-            id={id}
-          />
+          <BotonComprar id={id} />
         </form>
       </div>
     </div>
@@ -90,83 +80,95 @@ const ProductDetail = ({idP}) => {
 
 export default ProductDetail;
 
-function BotonColor({ color, selectedColor, setSelectedColor }) {
+function BotonColor({ color }) {
+  const dispatch = useProductSelectionDispatch();
+  const productSelection = useProductSelection();
+
   return (
     <div>
       <button
         className={`m-3 h-10 w-10 duration-300 ${
           color.clase
         } rounded-full border border-gray-300 shadow-gray-400 ${
-          selectedColor === color
+          productSelection.color === color.name
             ? "shadow-md ring-1 ring-gray-600 ring-offset-2"
             : "shadow-sm"
         } active:-translate-y-0.5 `}
         onClick={(e) => {
           e.preventDefault();
-          setSelectedColor(color);
+          dispatch({ type: "SET_COLOR", color: color.name });
         }}
       ></button>
     </div>
   );
 }
 
-function BotonTalle({ size, selectedSize, setSelectedSize }) {
-  if (size.inStock) {
-    return (
-      <div>
-        <button
-          className={`m-3 h-14 w-14 rounded-md border border-gray-300 bg-slate-50 text-sm font-medium text-gray-600 shadow-indigo-300 duration-300 active:-translate-y-0.5 ${
-            selectedSize === size
-              ? "shadow-md scale-110 shadow-indigo-200 border-indigo-500"
-              : "shadow-sm"
-          }`}
-          onClick={(e) => {
-            e.preventDefault();
-            setSelectedSize(size);
-          }}
-        >
-          {size.name}
-        </button>
-      </div>
-    );
-  }
+function BotonTalle({ size }) {
+  const dispatch = useProductSelectionDispatch();
+  const productSelection = useProductSelection();
+
+  return (
+    <div>
+      <button
+        className={`m-3 h-14 w-14 rounded-md border border-gray-300 bg-slate-50 text-sm font-medium text-gray-600 shadow-indigo-300 duration-300 active:-translate-y-0.5 ${
+          productSelection.size === size.name
+            ? "scale-110 border-indigo-500 shadow-md shadow-indigo-200"
+            : "shadow-sm"
+        }`}
+        onClick={(e) => {
+          e.preventDefault();
+          dispatch({ type: "SET_SIZE", size: size.name });
+        }}
+      >
+        {size.name}
+      </button>
+    </div>
+  );
 }
 
-function BotonComprar({
-  selectedSize,
-  selectedColor,
-  setSelectedColor,
-  setSelectedSize,
-  id
-}) {
+function BotonComprar({ id }) {
   const cart = useCart();
   const setCart = useSetCart();
-  const quantity = 1
+  const productSelection = useProductSelection();
 
   function handleClick(e) {
     e.preventDefault();
-    !cart.find(
-      (objCart) =>
-        objCart.id == id &&
-        objCart.colorSelected == selectedColor.name &&
-        objCart.sizeSelected == selectedSize.name
-    ) ? 
-    setCart([...cart, {id:id, quantity:quantity, colorSelected: selectedColor.name, sizeSelected: selectedSize.name}])
-    :
-    setCart(cart.map(objCart => {
-      if(objCart.id == id && 
-        objCart.colorSelected == selectedColor.name &&
-        objCart.sizeSelected == selectedSize.name) {
-          return {
-            id: objCart.id,
-            quantity: objCart.quantity + quantity,
-            colorSelected: objCart.colorSelected,
-            sizeSelected: objCart.sizeSelected,
-          };
-        }
-      return objCart
-    }))
-
+    if (
+      cart.some(
+        (oC) =>
+          oC.id == id &&
+          oC.colorSelected == productSelection.color &&
+          oC.sizeSelected == productSelection.size
+      )
+    ) {
+      setCart(
+        cart.map((oC) => {
+          if (
+            oC.id == id &&
+            oC.colorSelected == productSelection.color &&
+            oC.sizeSelected == productSelection.size
+          ) {
+            return {
+              id: oC.id,
+              quantity: oC.quantity + productSelection.quantity,
+              colorSelected: productSelection.color,
+              sizeSelected: productSelection.size,
+            };
+          }
+          return oC;
+        })
+      );
+    } else {
+      setCart([
+        ...cart,
+        {
+          id: id,
+          quantity: productSelection.quantity,
+          colorSelected: productSelection.color,
+          sizeSelected: productSelection.size,
+        },
+      ]);
+    }
   }
 
   return (

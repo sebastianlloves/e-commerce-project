@@ -1,4 +1,4 @@
-import { React, createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const ProductsContext = createContext(null);
 
@@ -52,7 +52,7 @@ const data_products = [
   },
   {
     id: 2,
-    name: "Zapatillass Nike",
+    name: "Zapatillas Nike",
     href: "#",
     images: [
       {
