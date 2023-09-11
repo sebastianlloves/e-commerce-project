@@ -102,7 +102,7 @@ const data_products = [
       { name: "XS", inStock: true },
       { name: "S", inStock: true },
       { name: "M", inStock: true },
-      { name: "L", inStock: true },
+      { name: "L", inStock: false },
       { name: "XL", inStock: true },
       { name: "2XL", inStock: true },
       { name: "3XL", inStock: true },

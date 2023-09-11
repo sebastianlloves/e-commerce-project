@@ -9,8 +9,9 @@ function ProductSelectionProvider({ children }) {
   const id = Number(useParams().id);
   const product = useProducts().find((p) => p.id === id);
   const [productSelection, dispatch] = useReducer(productSelectionReducer, {
-    color: product.colors[0],
-    size: product.sizes.filter((s) => s.inStock)[0],
+    id: id,
+    color: product.colors[0].name,
+    size: product.sizes.filter((s) => s.inStock)[0].name,
     quantity: 1,
   });
 

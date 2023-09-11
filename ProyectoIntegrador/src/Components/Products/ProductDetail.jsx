@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { useProducts } from "./ProductsProvider";
-import { useParams } from "react-router-dom";
 import { useCart, useSetCart } from "../Carrito/CartProvider";
 import {
   useProductSelection,
@@ -8,16 +6,11 @@ import {
 } from "./ProductSelectionProvider";
 
 const ProductDetail = () => {
-  const id = Number(useParams().id);
-  const product = useProducts().find((p) => p.id === id);
   const productSelection = useProductSelection();
-  const dispatch = useProductSelectionDispatch();
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  const [selectedSize, setSelectedSize] = useState(
-    product.sizes.filter((s) => s.inStock)[0]
-  );
+  const id = productSelection.id;
+  const product = useProducts().find((p) => p.id === id);
 
-  console.log(useProductSelection());
+  console.log(productSelection);
   console.log("Carrito");
   console.log(useCart());
 
@@ -52,7 +45,7 @@ const ProductDetail = () => {
             {/* Selección Color */}
             <h3 className="text-base font-semibold text-gray-900">
               Color:{" "}
-              <span className=" font-normal">{productSelection.color.name}</span>
+              <span className=" font-normal">{productSelection.color}</span>
             </h3>
             <div className="my-4 flex">
               {product.colors.map((color) => {
@@ -65,9 +58,11 @@ const ProductDetail = () => {
             {/* Selección Talle */}
             <h3 className="text-base font-semibold text-gray-900">Talle</h3>
             <div className="my-4 flex flex-wrap">
-              {product.sizes.map((size) => {
-                return <BotonTalle key={size.name} size={size} />;
-              })}
+              {product.sizes
+                .filter((s) => s.inStock)
+                .map((size) => {
+                  return <BotonTalle key={size.name} size={size} />;
+                })}
             </div>
           </div>
 
