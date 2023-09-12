@@ -1,30 +1,84 @@
-import { useState, createContext, useContext } from "react";
+import { React, useReducer, useContext, createContext } from "react";
 
 const CartContext = createContext(null);
-const SetCartContext = createContext(null);
+const CartDispatchContext = createContext(null);
 
-export function CartProvider({ children }) {
-  const [cart, setCart] = useState([]);
+function CartProvider({ children }) {
+  const [cart, dispatch] = useReducer(cartReducer, []);
 
   return (
     <CartContext.Provider value={cart}>
-      <SetCartContext.Provider value={setCart}>
+      <CartDispatchContext.Provider value={dispatch}>
         {children}
-      </SetCartContext.Provider>
+      </CartDispatchContext.Provider>
     </CartContext.Provider>
   );
 }
 
-export function useCart() {
-  return useContext(CartContext);
-}
+const useCart = () => useContext(CartContext);
+const useCartDispatch = () => useContext(CartDispatchContext);
 
-export function useSetCart() {
-  return useContext(SetCartContext);
-}
+export { CartProvider, useCart, useCartDispatch };
 
-const carritoInicial = [
-  { id: 1, quantity: 1, colorSelected: "Gris Oscuro", sizeSelected: "XL" },
-  { id: 3, quantity: 3, colorSelected: "Marrón", sizeSelected: "M" },
-  { id: 4, quantity: 2, colorSelected: "Azul Marino", sizeSelected: "L" },
-];
+function cartReducer(cart, action) {
+  switch (action.type) {
+    case "ADD_TO_CART": {
+      return cart.some(
+        (oC) =>
+          oC.id == action.id &&
+          oC.colorSelected == action.productSelection.color &&
+          oC.sizeSelected == action.productSelection.size
+      )
+        ? cart.map((oC) => {
+            return oC.id == action.id &&
+              oC.colorSelected == action.productSelection.color &&
+              oC.sizeSelected == action.productSelection.size
+              ? {
+                  id: oC.id,
+                  quantity: oC.quantity + action.productSelection.quantity,
+                  colorSelected: action.productSelection.color,
+                  sizeSelected: action.productSelection.size,
+                }
+              : oC;
+          })
+        : [
+            ...cart,
+            {
+              id: action.id,
+              quantity: action.productSelection.quantity,
+              colorSelected: action.productSelection.color,
+              sizeSelected: action.productSelection.size,
+            },
+          ];
+    }
+
+    case "INCREASE_QUANTITY": {
+      return cart.map((oC) =>
+        oC.id == action.id &&
+        oC.colorSelected == action.color &&
+        oC.sizeSelected == action.size
+          ? { ...oC, quantity: oC.quantity + 1 }
+          : oC
+      );
+    }
+
+    case "DECREASE_QUANTITY": {
+      return cart.map((oC) =>
+        oC.id == action.id &&
+        oC.colorSelected == action.color &&
+        oC.sizeSelected == action.size
+          ? { ...oC, quantity: oC.quantity - 1 }
+          : oC
+      );
+    }
+
+    case "REMOVE": {
+      return cart.filter(
+        (oC) =>
+          oC.id !== action.id ||
+          oC.colorSelected !== action.color ||
+          oC.sizeSelected !== action.size
+      );
+    }
+  }
+}

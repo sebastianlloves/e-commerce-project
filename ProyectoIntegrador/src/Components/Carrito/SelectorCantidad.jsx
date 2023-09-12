@@ -1,47 +1,26 @@
 import { React } from "react";
-import { useCart, useSetCart } from "./CartProvider";
+import { useCartDispatch } from "./CartProvider";
 
-function SelectorCantidad({ id, colorSelected, sizeSelected }) {
-  const cart = useCart();
-  const setCart = useSetCart();
-  const item = cart.find(
-    (objCart) =>
-      objCart.id === id &&
-      objCart.colorSelected === colorSelected &&
-      objCart.sizeSelected === sizeSelected
-  );
-
+function SelectorCantidad({ item }) {
+  const dispatch = useCartDispatch();
+  
   function handleAumentar() {
-    setCart(
-      cart.map((objCart) => {
-        if (
-          objCart.id === id &&
-          objCart.colorSelected === colorSelected &&
-          objCart.sizeSelected === sizeSelected
-        ) {
-          return { ...objCart, quantity: objCart.quantity + 1 };
-        }
-        return objCart;
-      })
-    );
+    dispatch({
+      type: "INCREASE_QUANTITY",
+      id: item.id,
+      color: item.colorSelected,
+      size: item.sizeSelected,
+    });
   }
-
+  
   function handleDisminuir() {
-    setCart(
-      cart.map((objCart) => {
-        if (
-          objCart.id === id &&
-          objCart.colorSelected === colorSelected &&
-          objCart.sizeSelected === sizeSelected
-        ) {
-          return { ...objCart, quantity: objCart.quantity - 1 };
-        }
-        return objCart;
-      })
-    );
+    dispatch({
+      type: "DECREASE_QUANTITY",
+      id: item.id,
+      color: item.colorSelected,
+      size: item.sizeSelected,
+    });
   }
-
-  console.log(useCart());
 
   return (
     <div className="flex  items-center">

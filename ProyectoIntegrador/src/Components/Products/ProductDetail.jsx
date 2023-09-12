@@ -1,9 +1,11 @@
+import React from "react";
 import { useProducts } from "./ProductsProvider";
-import { useCart, useSetCart } from "../Carrito/CartProvider";
+import { useCart, useCartDispatch } from "../Carrito/CartProvider";
 import {
   useProductSelection,
   useProductSelectionDispatch,
 } from "./ProductSelectionProvider";
+
 
 const ProductDetail = () => {
   const productSelection = useProductSelection();
@@ -122,48 +124,16 @@ function BotonTalle({ size }) {
 }
 
 function BotonComprar({ id }) {
-  const cart = useCart();
-  const setCart = useSetCart();
   const productSelection = useProductSelection();
+  const dispatch = useCartDispatch()
 
   function handleClick(e) {
     e.preventDefault();
-    if (
-      cart.some(
-        (oC) =>
-          oC.id == id &&
-          oC.colorSelected == productSelection.color &&
-          oC.sizeSelected == productSelection.size
-      )
-    ) {
-      setCart(
-        cart.map((oC) => {
-          if (
-            oC.id == id &&
-            oC.colorSelected == productSelection.color &&
-            oC.sizeSelected == productSelection.size
-          ) {
-            return {
-              id: oC.id,
-              quantity: oC.quantity + productSelection.quantity,
-              colorSelected: productSelection.color,
-              sizeSelected: productSelection.size,
-            };
-          }
-          return oC;
-        })
-      );
-    } else {
-      setCart([
-        ...cart,
-        {
-          id: id,
-          quantity: productSelection.quantity,
-          colorSelected: productSelection.color,
-          sizeSelected: productSelection.size,
-        },
-      ]);
-    }
+    dispatch({
+      type: "ADD_TO_CART",
+      id: id,
+      productSelection: productSelection,
+    });
   }
 
   return (

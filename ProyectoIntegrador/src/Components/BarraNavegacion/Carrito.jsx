@@ -1,3 +1,4 @@
+import React from "react";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { useCart } from "../Carrito/CartProvider";
 import { Link } from "react-router-dom";

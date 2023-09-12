@@ -1,22 +1,33 @@
 import React from "react";
-import { useProducts } from "../Products/ProductsProvider";
-import { useCart, useSetCart } from "./CartProvider";
-import SelectorCantidad from "./SelectorCantidad";
 import { Link } from "react-router-dom";
+import { useProducts } from "../Products/ProductsProvider";
+import { useCart, useCartDispatch } from "./CartProvider";
+import SelectorCantidad from "./SelectorCantidad";
+
 
 function CartList() {
   return (
     <div className="m-auto flex w-3/4 max-w-screen-lg flex-col py-6">
-      <h2 className="my-10 text-left text-3xl font-semibold text-slate-800 uppercase">
+      <h2 className="my-10 text-left text-3xl font-semibold uppercase text-slate-800">
         Mi Carrito
       </h2>
+      <BotonSeguirComprando />
       {useCart().length > 0 ? <ListaCompra /> : <EmptyCart />}
     </div>
   );
 }
 
+function BotonSeguirComprando(){
+  return (
+    <Link to="../">
+      <button>Seguir Comprando</button>
+    </Link>
+  )
+}
+
 function ListaCompra() {
   const products = useProducts();
+  const dispatch = useCartDispatch();
   const articlesCart = useCart().map(
     ({ id, quantity, colorSelected, sizeSelected }) => {
       return {
@@ -27,7 +38,6 @@ function ListaCompra() {
       };
     }
   );
-  const setCart = useSetCart();
 
   return (
     <div>
@@ -63,11 +73,7 @@ function ListaCompra() {
                     </p>
                   </div>
                   <div className="flex w-1/4 items-center justify-center text-sm">
-                    <SelectorCantidad
-                      id={item.id}
-                      colorSelected={item.colorSelected}
-                      sizeSelected={item.sizeSelected}
-                    />
+                    <SelectorCantidad item={item} />
                     <div className="mx-4 flex"></div>
                   </div>
                   <div className="flex flex-col items-center">
@@ -75,16 +81,15 @@ function ListaCompra() {
                     <button
                       type="button"
                       className="pt-8 font-medium text-indigo-600 hover:text-indigo-500"
-                      onClick={() =>
-                        setCart(
-                          articlesCart.filter(
-                            (aC) =>
-                              aC.id !== item.id ||
-                              aC.colorSelected !== item.colorSelected ||
-                              aC.sizeSelected !== item.sizeSelected
-                          )
-                        )
-                      }
+                      onClick={(e) => {
+                        e.preventDefault();
+                        dispatch({
+                          type: "REMOVE",
+                          id: item.id,
+                          color: item.colorSelected,
+                          size: item.sizeSelected,
+                        });
+                      }}
                     >
                       Remover
                     </button>

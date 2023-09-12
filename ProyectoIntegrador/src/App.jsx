@@ -15,6 +15,7 @@ export default function App() {
       <ProductsProvider>
         <CartProvider>
           <NavBarPropio />
+
           <Routes>
             <Route path="/" element={<ListadoTarjetas />}></Route>
             <Route
@@ -27,6 +28,7 @@ export default function App() {
             />            
             <Route path="/cart" element={<CartList />} />
           </Routes>
+          
         </CartProvider>
       </ProductsProvider>
     </BrowserRouter>
