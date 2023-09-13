@@ -1,15 +1,17 @@
-/* import { UsersList } from "./Desafios";
-import { UsersProvider } from "./UsersContext"; */
-import {Comentarios} from "./Ejercicio_clase7";
-
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Maestro from "./Maestro";
+import Detalle from "./Detalle";
 
 function App() {
 
   return (
-    <Comentarios />
-    /*     <UsersProvider>
-      <UsersList />
-    </UsersProvider> */
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Maestro />} />
+        <Route path='/user/:id' element={<Detalle />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -6,7 +6,7 @@ function Tarjeta({
 }) {
   return (
     <Link to={`/product/${id}`}
-      className="group relative rounded-lg bg-zinc-50 p-4 pb-6 shadow-lg transition-all duration-300 hover:scale-105"
+      className="group relative rounded-lg bg-zinc-50 p-4 pb-6 shadow-sm shadow-zinc-200 transition-all duration-300 hover:scale-[102%] hover:shadow-lg"
     >
       <div className="w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
         <img
