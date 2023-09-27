@@ -1,10 +1,27 @@
 import React from "react";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const ProductsContext = createContext(null);
 
 function ProductsProvider({ children }) {
-  const [products] = useState(data_products);
+  const [products, setProducts] = useState([]);
+  console.log('Cargo ProductsProvider')
+
+  useEffect(() => {
+    async function hacerFetch() {
+      try {
+        const data = await fetch("https://fakestoreapi.com/products");
+        if (!data.ok) throw new Error("Error al hacer fetch");
+        const respuesta = await data.json();
+        setProducts(formatearData(respuesta));
+      } catch (error) {
+        console.log(`Error tipo: ${error}`);
+      }
+    }
+    
+    hacerFetch();
+  }, []);
+  
 
   return (
     <ProductsContext.Provider value={products}>
@@ -13,13 +30,99 @@ function ProductsProvider({ children }) {
   );
 }
 
+
 function useProducts() {
   return useContext(ProductsContext);
 }
 
 export { ProductsProvider, useProducts };
 
-const data_products = [
+
+
+function formatearData(data) {
+  const arr_stock = [true, false];
+  const arr_colors = [
+    { name: "Negro", clase: "bg-slate-900", selectedClass: "ring-gray-400" },
+    {
+      name: "Gris Oscuro",
+      clase: "bg-gray-900",
+      selectedClass: "ring-gray-400",
+    },
+    { name: "Marrón", clase: "bg-amber-950", selectedClass: "ring-gray-400" },
+    {
+      name: "Azul Marino",
+      clase: "bg-sky-800",
+      selectedClass: "ring-gray-400",
+    },
+    {
+      name: "Rojo",
+      clase: "bg-red-900",
+      selectedClass: "ring-gray-400",
+    },
+    {
+      name: "Amarillo",
+      clase: "bg-amber-400",
+      selectedClass: "ring-gray-400",
+    },
+    {
+      name: "Verde",
+      clase: "bg-emerald-800",
+      selectedClass: "ring-gray-400",
+    },
+  ];
+
+  const dataFormateada = data.map((p) => {
+    return {
+      id: p.id,
+      name: p.title,
+      href: "#",
+      images: [{ src: p.image, alt: p.title }],
+      price: p.price,
+      description: p.description,
+      sizes: [
+        {
+          name: "XS",
+          inStock: arr_stock[Math.floor(Math.random() * arr_stock.length)],
+        },
+        {
+          name: "S",
+          inStock: arr_stock[Math.floor(Math.random() * arr_stock.length)],
+        },
+        {
+          name: "M",
+          inStock: arr_stock[Math.floor(Math.random() * arr_stock.length)],
+        },
+        {
+          name: "L",
+          inStock: arr_stock[Math.floor(Math.random() * arr_stock.length)],
+        },
+        {
+          name: "XL",
+          inStock: arr_stock[Math.floor(Math.random() * arr_stock.length)],
+        },
+        {
+          name: "2XL",
+          inStock: arr_stock[Math.floor(Math.random() * arr_stock.length)],
+        },
+      ],
+      colors: arr_colors
+        .map((obj_color) => (Math.random() > 0.5 ? obj_color : null))
+        .filter((el) => el !== null),
+    };
+  });
+
+  return dataFormateada;
+}
+
+
+
+
+
+
+
+
+
+/* const data_products = [
   {
     id: 1,
     name: "Anteojos Clásicos",
@@ -143,3 +246,4 @@ const data_products = [
   Minima magni harum est quaerat sapiente odio exercitationem voluptatibus dolorum ipsum, quas incidunt aut voluptate in quidem, tempore praesentium assumenda quis deserunt ducimus commodi. Animi eveniet nisi pariatur labore a!`,
   },
 ];
+ */

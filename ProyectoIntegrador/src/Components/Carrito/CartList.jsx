@@ -108,8 +108,7 @@ function ListaCompra() {
             ${" "}
             {articlesCart.reduce(
               (prevValue, currentValue) =>
-                prevValue +
-                parseInt(currentValue.price.split(" ")[1]) *
+                prevValue + currentValue.price *
                   currentValue.quantity,
               0
             )}
