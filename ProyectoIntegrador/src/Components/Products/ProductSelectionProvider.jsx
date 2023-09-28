@@ -7,7 +7,8 @@ const ProductSelectionDispatchContext = createContext(null);
 
 function ProductSelectionProvider({ children }) {
   const id = Number(useParams().id);
-  const product = useProducts().find((p) => Number(p.id) === id);
+  const product = useProducts().find(obj_product => Number(obj_product.id) === id);
+  console.log(useProducts());
   const [productSelection, dispatch] = useReducer(productSelectionReducer, {
     id: id,
     color: product.colors[0].name,

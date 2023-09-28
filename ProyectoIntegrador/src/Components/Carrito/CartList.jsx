@@ -7,7 +7,7 @@ import SelectorCantidad from "./SelectorCantidad";
 
 function CartList() {
   return (
-    <div className="m-auto flex w-3/4 max-w-screen-lg flex-col py-6">
+    <div className="m-auto flex w-3/4 max-w-screen-lg flex-col py-24">
       <h2 className="my-10 text-left text-3xl font-semibold uppercase text-slate-800">
         Mi Carrito
       </h2>
@@ -45,16 +45,16 @@ function ListaCompra() {
         {articlesCart.map((item) => (
           <li
             key={`${item.id}-${item.colorSelected}-${item.sizeSelected}`}
-            className="flex py-6"
+            className="flex items-center py-6"
           >
             <Link
               to={`../product/${item.id}`}
-              className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border-transparent shadow-md shadow-stone-300"
+              className="flex h-24 w-24 flex-shrink-0 items-center justify-center overflow-hidden rounded-md border-transparent p-2 shadow-md shadow-stone-300"
             >
               <img
                 src={item.images[0].src}
                 alt={item.images[0].alt}
-                className="h-full w-full object-cover object-center"
+                className="max-h-full max-w-full object-cover object-center"
               />
             </Link>
 
@@ -77,7 +77,7 @@ function ListaCompra() {
                     <div className="mx-4 flex"></div>
                   </div>
                   <div className="flex flex-col items-center">
-                    <p>{item.price}</p>
+                    <p>{`U$D ${item.price}`}</p>
                     <button
                       type="button"
                       className="pt-8 font-medium text-indigo-600 hover:text-indigo-500"
@@ -108,8 +108,7 @@ function ListaCompra() {
             ${" "}
             {articlesCart.reduce(
               (prevValue, currentValue) =>
-                prevValue + currentValue.price *
-                  currentValue.quantity,
+                prevValue + currentValue.price * currentValue.quantity,
               0
             )}
           </p>

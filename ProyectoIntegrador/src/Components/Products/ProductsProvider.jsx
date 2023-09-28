@@ -1,11 +1,13 @@
 import React from "react";
 import { createContext, useContext, useState, useEffect } from "react";
+/* import { useParams, useLocation } from "react-router-dom"; */
 
 const ProductsContext = createContext(null);
 
 function ProductsProvider({ children }) {
   const [products, setProducts] = useState([]);
   console.log('Cargo ProductsProvider')
+  console.log(products);
 
   useEffect(() => {
     async function hacerFetch() {
@@ -18,7 +20,7 @@ function ProductsProvider({ children }) {
         console.log(`Error tipo: ${error}`);
       }
     }
-    
+
     hacerFetch();
   }, []);
   
@@ -77,7 +79,7 @@ function formatearData(data) {
       name: p.title,
       href: "#",
       images: [{ src: p.image, alt: p.title }],
-      price: p.price,
+      price: p.price.toFixed(2),
       description: p.description,
       sizes: [
         {

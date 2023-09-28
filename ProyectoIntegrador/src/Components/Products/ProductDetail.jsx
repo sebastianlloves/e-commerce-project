@@ -1,6 +1,6 @@
 import React from "react";
 import { useProducts } from "./ProductsProvider";
-import { useCart, useCartDispatch } from "../Carrito/CartProvider";
+import {  useCartDispatch } from "../Carrito/CartProvider";
 import {
   useProductSelection,
   useProductSelectionDispatch,
@@ -12,19 +12,15 @@ const ProductDetail = () => {
   const id = productSelection.id;
   const product = useProducts().find((p) => p.id === id);
 
-  console.log(productSelection);
-  console.log("Carrito");
-  console.log(useCart());
-
   return (
-    <div className="mx-auto grid h-full min-h-0 max-w-screen-xl grid-cols-1 gap-x-10 bg-slate-50 py-12 lg:grid-cols-2">
+    <div className=" mx-auto grid h-full max-w-screen-xl grid-cols-1 gap-x-10 bg-slate-50 py-24 lg:grid-cols-2">
       {/* Imagen */}
       <div className="h-min w-full justify-self-center p-4 lg:border-r-2 lg:border-gray-200 lg:p-12">
-        <div className="mx-auto overflow-hidden rounded-lg border border-gray-200 shadow-sm shadow-gray-200">
+        <div className="mx-auto overflow-hidden rounded-lg border border-gray-200 bg-white p-6 shadow-sm shadow-gray-200">
           <img
             src={product.images[0].src}
             alt={product.images[0].alt}
-            className="h-full max-h-80 w-full object-cover object-center"
+            className="h-full object-cover object-center"
           />
         </div>
       </div>
@@ -40,7 +36,7 @@ const ProductDetail = () => {
 
       {/* Selección */}
       <div className="h-min p-10 lg:row-span-2 lg:p-12">
-        <p className="text-3xl tracking-tight text-gray-900">{product.price}</p>
+        <p className="text-3xl tracking-tight text-gray-900">{`U$D ${product.price}`}</p>
 
         <form className="mt-20 space-y-10 lg:space-y-20">
           <div>
@@ -80,11 +76,12 @@ export default ProductDetail;
 function BotonColor({ color }) {
   const dispatch = useProductSelectionDispatch();
   const productSelection = useProductSelection();
+  
 
   return (
     <div>
       <button
-        className={`m-3 h-10 w-10 duration-300 ${color.clase} rounded-full border border-gray-300 shadow-gray-400 ${
+        className={`m-3 h-10 w-10 duration-300 ${color.clase} rounded-full border border-gray-300 shadow-gray-400/50 ${
           productSelection.color === color.name
             ? "shadow-lg ring-1 ring-gray-600 ring-offset-2"
             : "shadow-md"
@@ -107,7 +104,7 @@ function BotonTalle({ size }) {
       <button
         className={`m-3 h-14 w-14 rounded-md border border-gray-300 bg-slate-50 text-sm font-medium text-gray-600 shadow-indigo-300 duration-300 active:-translate-y-0.5 ${
           productSelection.size === size.name
-            ? "scale-110 border-indigo-500 shadow-md shadow-indigo-200"
+            ? "scale-110 border-indigo-500 shadow-md shadow-indigo-200/80"
             : "shadow-sm"
         }`}
         onClick={(e) => {

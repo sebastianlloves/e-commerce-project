@@ -25,10 +25,9 @@ export default function App() {
                   <ProductDetail />
                 </ProductSelectionProvider>
               }
-            />            
+            />
             <Route path="/cart" element={<CartList />} />
           </Routes>
-          
         </CartProvider>
       </ProductsProvider>
     </BrowserRouter>

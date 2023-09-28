@@ -6,7 +6,7 @@ import React from "react";
 
 export default function NavBarPropio() {
   return (
-    <header className="w-full z-10 bg-slate-900">
+    <header className="w-full fixed z-10 bg-slate-900">
       <nav
         aria-label="Top"
         className=" flex justify-between mx-auto h-16 max-w-7xl px-8 items-center"
