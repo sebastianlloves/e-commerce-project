@@ -10,7 +10,7 @@ function ProductsProvider({ children }) {
   console.log(products);
 
   useEffect(() => {
-    async function hacerFetch() {
+    (async function () {
       try {
         const data = await fetch("https://fakestoreapi.com/products");
         if (!data.ok) throw new Error("Error al hacer fetch");
@@ -19,9 +19,8 @@ function ProductsProvider({ children }) {
       } catch (error) {
         console.log(`Error tipo: ${error}`);
       }
-    }
-
-    hacerFetch();
+    })();
+    console.log("Hizo Fetch")
   }, []);
   
 

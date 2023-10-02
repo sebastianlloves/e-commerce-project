@@ -9,12 +9,12 @@ function ProductSelectionProvider({ children }) {
   const id = Number(useParams().id);
   const product = useProducts().find(obj_product => Number(obj_product.id) === id);
   console.log(useProducts());
-  const [productSelection, dispatch] = useReducer(productSelectionReducer, {
+  const [productSelection, dispatch] = useReducer(productSelectionReducer, product?{
     id: id,
     color: product.colors[0].name,
     size: product.sizes.filter((s) => s.inStock)[0].name,
     quantity: 1,
-  });
+  } : null);
 
   return (
     <ProductSelectionContext.Provider value={productSelection}>

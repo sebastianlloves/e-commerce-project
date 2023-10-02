@@ -6,7 +6,7 @@ import { ProductsProvider } from "./Components/Products/ProductsProvider.jsx";
 import { CartProvider } from "./Components/Carrito/CartProvider";
 import ListadoTarjetas from "./Components/Products/ListadoTarjetas.jsx";
 import CartList from "./Components/Carrito/CartList";
-import ProductDetail from "./Components/Products/ProductDetail";
+import ProductDetail from "./Components/Products/ProductDetails/ProductDetail";
 import { ProductSelectionProvider } from "./Components/Products/ProductSelectionProvider";
 
 export default function App() {
