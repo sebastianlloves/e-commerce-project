@@ -21,9 +21,11 @@ export default function App() {
             <Route
               path="/product/:id"
               element={
-                <ProductSelectionProvider>
-                  <ProductDetail />
-                </ProductSelectionProvider>
+                <ProductsProvider>
+                  <ProductSelectionProvider>
+                    <ProductDetail />
+                  </ProductSelectionProvider>
+                </ProductsProvider>
               }
             />
             <Route path="/cart" element={<CartList />} />
