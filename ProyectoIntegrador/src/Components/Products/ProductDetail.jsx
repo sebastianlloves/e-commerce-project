@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import { useProducts } from "./ProductsProvider";
 import {  useCartDispatch } from "../Carrito/CartProvider";
 import {
@@ -9,9 +10,20 @@ import {
 
 const ProductDetail = () => {
   const productSelection = useProductSelection();
-  const id = productSelection.id;
+  const id = Number(useParams().id);
   const product = useProducts().find((p) => p.id === id);
+  console.log(product)
 
+  return (
+    product && productSelection? <Detalles product={product} productSelection={productSelection} /> : <Espera />
+  );
+};
+
+export default ProductDetail;
+
+
+
+function Detalles({ product, productSelection }) {
   return (
     <div className=" mx-auto grid h-full max-w-screen-xl grid-cols-1 gap-x-10 bg-slate-50 py-24 lg:grid-cols-2">
       {/* Imagen */}
@@ -64,14 +76,17 @@ const ProductDetail = () => {
             </div>
           </div>
 
-          <BotonComprar id={id} />
+          <BotonComprar id={productSelection.id} />
         </form>
       </div>
     </div>
   );
 };
 
-export default ProductDetail;
+function Espera(){
+  return <p>Producto no encontrado</p>;
+}
+
 
 function BotonColor({ color }) {
   const dispatch = useProductSelectionDispatch();
