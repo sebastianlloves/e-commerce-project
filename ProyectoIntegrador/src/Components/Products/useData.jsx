@@ -22,7 +22,7 @@ export default function useData(url) {
     return () => (ignore = true);
   }, [url]);
 
-  return {products, setProducts}
+  return products
 }
 
 
@@ -98,7 +98,8 @@ function formatearData(data) {
       ],
       colors: arr_colors
         .map((obj_color) => (Math.random() > 0.5 ? obj_color : null))
-        .filter((el) => el !== null),
+        .filter((el) => el !== null)
+        .slice(0, 3),
     };
   });
 
