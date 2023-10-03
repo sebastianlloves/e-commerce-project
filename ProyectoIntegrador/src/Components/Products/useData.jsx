@@ -22,7 +22,7 @@ export default function useData(url) {
     return () => (ignore = true);
   }, [url]);
 
-  return products
+  return {products, setProducts}
 }
 
 

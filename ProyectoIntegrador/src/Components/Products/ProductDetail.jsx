@@ -1,21 +1,28 @@
-import React from "react";
+import { React, useState, useReducer } from "react";
 import { useParams } from "react-router-dom";
-import { useProducts } from "./ProductsProvider";
+import { useProducts, useSetProducts } from "./ProductsProvider";
 import {  useCartDispatch } from "../Carrito/CartProvider";
 import {
   useProductSelection,
   useProductSelectionDispatch,
 } from "./ProductSelectionProvider";
+import useData from "./useData";
 
 
 const ProductDetail = () => {
-  const productSelection = useProductSelection();
   const id = Number(useParams().id);
   const product = useProducts().find((p) => p.id === id);
-  console.log(product)
+  console.log(product);
+  
 
   return (
-    product && productSelection? <Detalles product={product} productSelection={productSelection} /> : <Espera />
+    <div>
+      {product ? (
+        <Detalles product={product} />
+      ) : (
+        <Espera />
+      )}
+    </div>
   );
 };
 
@@ -23,7 +30,14 @@ export default ProductDetail;
 
 
 
-function Detalles({ product, productSelection }) {
+function Detalles({ product }) {
+  const [productSelection, dispatch] = useReducer(productSelectionReducer, {
+    id: product.id,
+    color: product.colors[0].name,
+    size: product.sizes.filter((s) => s.inStock)[0].name,
+    quantity: 1,
+  });
+
   return (
     <div className=" mx-auto grid h-full max-w-screen-xl grid-cols-1 gap-x-10 bg-slate-50 py-24 lg:grid-cols-2">
       {/* Imagen */}
@@ -59,7 +73,14 @@ function Detalles({ product, productSelection }) {
             </h3>
             <div className="my-4 flex">
               {product.colors.map((color) => {
-                return <BotonColor key={color.name} color={color} />;
+                return (
+                  <BotonColor
+                    key={color.name}
+                    color={color}
+                    productSelection={productSelection}
+                    dispatch={dispatch}
+                  />
+                );
               })}
             </div>
           </div>
@@ -71,32 +92,43 @@ function Detalles({ product, productSelection }) {
               {product.sizes
                 .filter((s) => s.inStock)
                 .map((size) => {
-                  return <BotonTalle key={size.name} size={size} />;
+                  return (
+                    <BotonTalle
+                      key={size.name}
+                      size={size}
+                      productSelection={productSelection}
+                      dispatch={dispatch}
+                    />
+                  );
                 })}
             </div>
           </div>
 
-          <BotonComprar id={productSelection.id} />
+          <BotonComprar
+            id={productSelection.id}
+            productSelection={productSelection}
+          />
         </form>
       </div>
     </div>
   );
 };
 
+
 function Espera(){
   return <p>Producto no encontrado</p>;
 }
 
 
-function BotonColor({ color }) {
-  const dispatch = useProductSelectionDispatch();
-  const productSelection = useProductSelection();
-  
+
+function BotonColor({ color, productSelection, dispatch }) {
 
   return (
     <div>
       <button
-        className={`m-3 h-10 w-10 duration-300 ${color.clase} rounded-full border border-gray-300 shadow-gray-400/50 ${
+        className={`m-3 h-10 w-10 duration-300 ${
+          color.clase
+        } rounded-full border border-gray-300 shadow-gray-400/50 ${
           productSelection.color === color.name
             ? "shadow-lg ring-1 ring-gray-600 ring-offset-2"
             : "shadow-md"
@@ -110,9 +142,8 @@ function BotonColor({ color }) {
   );
 }
 
-function BotonTalle({ size }) {
-  const dispatch = useProductSelectionDispatch();
-  const productSelection = useProductSelection();
+
+function BotonTalle({ size, productSelection, dispatch }) {
 
   return (
     <div>
@@ -133,9 +164,9 @@ function BotonTalle({ size }) {
   );
 }
 
-function BotonComprar({ id }) {
-  const productSelection = useProductSelection();
-  const dispatch = useCartDispatch()
+
+function BotonComprar({ id, productSelection }) {
+  const dispatch = useCartDispatch();
 
   function handleClick(e) {
     e.preventDefault();
@@ -157,4 +188,16 @@ function BotonComprar({ id }) {
       </button>
     </div>
   );
+}
+
+
+function productSelectionReducer(state, action) {
+  switch (action.type) {
+    case "SET_SIZE": {
+      return { ...state, size: action.size };
+    }
+    case "SET_COLOR": {
+      return { ...state, color: action.color };
+    }
+  }
 }

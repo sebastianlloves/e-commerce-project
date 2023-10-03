@@ -7,7 +7,6 @@ import { CartProvider } from "./Components/Carrito/CartProvider";
 import ListadoTarjetas from "./Components/Products/ListadoTarjetas.jsx";
 import CartList from "./Components/Carrito/CartList";
 import ProductDetail from "./Components/Products/ProductDetail";
-import { ProductSelectionProvider } from "./Components/Products/ProductSelectionProvider";
 
 export default function App() {
   return (
@@ -21,9 +20,7 @@ export default function App() {
             <Route
               path="/product/:id"
               element={
-                <ProductSelectionProvider products={useProducts()}>
                   <ProductDetail />
-                </ProductSelectionProvider>
               }
             />
             <Route path="/cart" element={<CartList />} />
