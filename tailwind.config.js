@@ -2,12 +2,13 @@
 
 export default {
   content: [
-    "./ProyectoIntegrador/index.html",
-    "./ProyectoIntegrador/src/**/*.{js,ts,jsx,tsx}",
+    "./Clases/index.html",
+    "./Clases/src/**/*.{js,ts,jsx,tsx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
   },
-  plugins: [
-  ],
+  plugins: [],
 };
