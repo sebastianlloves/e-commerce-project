@@ -2,7 +2,7 @@ import Tarjeta from "./Tarjeta";
 import { useProducts } from "./ProductsProvider";
 import React from "react";
 
-function ListadoTarjetas() {
+function Home() {
   const products = useProducts();
   return (
     <div className="mx-auto min-h-max max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -15,4 +15,4 @@ function ListadoTarjetas() {
   );
 }
 
-export default ListadoTarjetas;
+export default Home;

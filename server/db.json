@@ -13,12 +13,9 @@
       "price": "109.95",
       "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
       "sizes": [
-        { "name": "XS", "inStock": true },
-        { "name": "S", "inStock": true },
-        { "name": "M", "inStock": true },
-        { "name": "L", "inStock": true },
-        { "name": "XL", "inStock": false },
-        { "name": "2XL", "inStock": true }
+        { "name": "1TB / 4GB", "inStock": true },
+        { "name": "1TB / 8GB", "inStock": true },
+        { "name": "2TB / 8GB", "inStock": true }
       ],
       "colors": [
         {
@@ -29,11 +26,6 @@
         {
           "name": "Gris Oscuro",
           "clase": "bg-gray-900",
-          "selectedClass": "ring-gray-400"
-        },
-        {
-          "name": "Marrón",
-          "clase": "bg-amber-950",
           "selectedClass": "ring-gray-400"
         }
       ]
@@ -106,11 +98,6 @@
           "name": "Azul Marino",
           "clase": "bg-sky-800",
           "selectedClass": "ring-gray-400"
-        },
-        {
-          "name": "Amarillo",
-          "clase": "bg-amber-400",
-          "selectedClass": "ring-gray-400"
         }
       ]
     },
@@ -136,11 +123,6 @@
       ],
       "colors": [
         {
-          "name": "Azul Marino",
-          "clase": "bg-sky-800",
-          "selectedClass": "ring-gray-400"
-        },
-        {
           "name": "Rojo",
           "clase": "bg-red-900",
           "selectedClass": "ring-gray-400"
@@ -165,27 +147,11 @@
       "price": "695.00",
       "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
       "sizes": [
-        { "name": "XS", "inStock": true },
-        { "name": "S", "inStock": false },
-        { "name": "M", "inStock": true },
-        { "name": "L", "inStock": false },
-        { "name": "XL", "inStock": true },
-        { "name": "2XL", "inStock": false }
       ],
       "colors": [
         {
-          "name": "Negro",
-          "clase": "bg-slate-900",
-          "selectedClass": "ring-gray-400"
-        },
-        {
-          "name": "Marrón",
-          "clase": "bg-amber-950",
-          "selectedClass": "ring-gray-400"
-        },
-        {
-          "name": "Azul Marino",
-          "clase": "bg-sky-800",
+          "name": "Gris Oscuro",
+          "clase": "bg-gray-900",
           "selectedClass": "ring-gray-400"
         }
       ]
