@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import NavBarPropio from "./Components/BarraNavegacion/NavBarPropio.jsx";
-import { ProductsProvider, useProducts } from "./Components/Products/ProductsProvider.jsx";
+import { ProductsProvider } from "./Components/Products/ProductsProvider.jsx";
 import { CartProvider } from "./Components/Carrito/CartProvider";
 import ListadoTarjetas from "./Components/Products/ListadoTarjetas.jsx";
 import CartList from "./Components/Carrito/CartList";
