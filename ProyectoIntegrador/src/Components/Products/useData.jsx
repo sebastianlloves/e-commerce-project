@@ -1,4 +1,4 @@
-import {  useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function useData(url) {
   const [products, setProducts] = useState([]);
@@ -22,13 +22,8 @@ export default function useData(url) {
     return () => (ignore = true);
   }, [url]);
 
-  return products
+  return products;
 }
-
-
-
-
-
 
 function formatearData(data) {
   const arr_stock = [true, false];

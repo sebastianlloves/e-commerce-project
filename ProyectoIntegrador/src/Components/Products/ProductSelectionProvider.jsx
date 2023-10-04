@@ -4,9 +4,9 @@ import { useParams } from "react-router-dom";
 const ProductSelectionContext = createContext(null);
 const ProductSelectionDispatchContext = createContext(null);
 
-function ProductSelectionProvider({ children, products}) {
+function ProductSelectionProvider({ children, products }) {
   const id = Number(useParams().id);
-  const productslist = products || [] 
+  const productslist = products || [];
   const product = productslist.find(
     (obj_product) => Number(obj_product.id) === id
   );

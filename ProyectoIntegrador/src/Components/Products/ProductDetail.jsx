@@ -1,20 +1,18 @@
-import { React, useReducer, useState } from "react";
+import { React, useReducer } from "react";
 import { useParams } from "react-router-dom";
-import { useProducts } from "./ProductsProvider";
-import {  useCartDispatch } from "../Carrito/CartProvider";
-import {
-  useProductSelection,
-  useProductSelectionDispatch,
-} from "./ProductSelectionProvider";
+import { useCartDispatch } from "../Carrito/CartProvider";
 import useData from "./useData";
-
 
 const ProductDetail = () => {
   const id = Number(useParams().id);
   const product = useData("https://fakestoreapi.com/products").find(
     (p) => p.id === id
   );
-  console.log(product? product.colors[0].name + product.sizes[0].name : 'No se halló producto');
+  console.log(
+    product
+      ? product.colors[0].name + product.sizes[0].name
+      : "No se halló producto"
+  );
 
   return (
     <>
@@ -32,15 +30,18 @@ export default ProductDetail;
 
 
 
-function Detalles({ product:{id, colors,sizes, name, images, description, price} }) {
+
+function Detalles({
+  product: { id, colors, sizes, name, images, description, price },
+}) {
   const [productSelection, dispatch] = useReducer(productSelectionReducer, {
     id: id,
     color: colors[0].name,
-    size: sizes.filter(s => s.inStock)[0].name,
+    size: sizes.filter((s) => s.inStock)[0].name,
     quantity: 1,
   });
 
-  console.log(productSelection)
+  console.log(productSelection);
 
   return (
     <div className=" mx-auto grid h-full max-w-screen-xl grid-cols-1 gap-x-10 bg-slate-50 py-24 lg:grid-cols-2">
@@ -116,11 +117,9 @@ function Detalles({ product:{id, colors,sizes, name, images, description, price}
       </div>
     </div>
   );
-};
-
+}
 
 function BotonColor({ color, productSelection, dispatch }) {
-
   return (
     <div>
       <button
@@ -140,10 +139,7 @@ function BotonColor({ color, productSelection, dispatch }) {
   );
 }
 
-
-
 function BotonTalle({ size, productSelection, dispatch }) {
-
   return (
     <div>
       <button
@@ -162,7 +158,6 @@ function BotonTalle({ size, productSelection, dispatch }) {
     </div>
   );
 }
-
 
 function BotonComprar({ id, productSelection }) {
   const dispatch = useCartDispatch();
@@ -188,7 +183,6 @@ function BotonComprar({ id, productSelection }) {
     </div>
   );
 }
-
 
 function productSelectionReducer(state, action) {
   switch (action.type) {

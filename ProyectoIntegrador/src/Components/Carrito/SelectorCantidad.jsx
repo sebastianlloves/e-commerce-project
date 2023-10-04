@@ -3,7 +3,7 @@ import { useCartDispatch } from "./CartProvider";
 
 function SelectorCantidad({ item }) {
   const dispatch = useCartDispatch();
-  
+
   function handleAumentar() {
     dispatch({
       type: "INCREASE_QUANTITY",
@@ -12,7 +12,7 @@ function SelectorCantidad({ item }) {
       size: item.sizeSelected,
     });
   }
-  
+
   function handleDisminuir() {
     dispatch({
       type: "DECREASE_QUANTITY",

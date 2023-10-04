@@ -4,7 +4,6 @@ import { useProducts } from "../Products/ProductsProvider";
 import { useCart, useCartDispatch } from "./CartProvider";
 import SelectorCantidad from "./SelectorCantidad";
 
-
 function CartList() {
   return (
     <div className="m-auto flex w-3/4 max-w-screen-lg flex-col py-24">
@@ -17,12 +16,12 @@ function CartList() {
   );
 }
 
-function BotonSeguirComprando(){
+function BotonSeguirComprando() {
   return (
     <Link to="../">
       <button>Seguir Comprando</button>
     </Link>
-  )
+  );
 }
 
 function ListaCompra() {

@@ -8,7 +8,7 @@ const ProductsContext = createContext(null);
 function ProductsProvider({ children }) {
   const products = useData("https://fakestoreapi.com/products")
   console.log("Cargo ProductsProvider");
-  console.log(products);
+  console.log(JSON.stringify(products)/* products */);
 
   
   return (
