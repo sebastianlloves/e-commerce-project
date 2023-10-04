@@ -6,9 +6,9 @@ import useData from "./useData";
 const ProductsContext = createContext(null);
 
 function ProductsProvider({ children }) {
-  const products = useData("https://fakestoreapi.com/products")
+  const products = useData("http://localhost:3004/products");
   console.log("Cargo ProductsProvider");
-  console.log(JSON.stringify(products)/* products */);
+  console.log(products);
 
   
   return (

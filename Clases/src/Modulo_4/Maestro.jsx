@@ -8,8 +8,8 @@ const Maestro = () => {
   return (
     <div className='flex flex-col items-start'>
       {data.map((user) => (
-        <Link to={user.id !== 4 && `/user/${user.id}`}>
-          <div className='p-6 border m-4 w-80' key={user.id}>
+        <Link to={user.id !== 4 && `/user/${user.id}`} key={user.id}>
+          <div className='p-6 border m-4 w-80'>
             <h3>{user.name}</h3>
             <p>{`ID: ${user.id}`}</p>
           </div>

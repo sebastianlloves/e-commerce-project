@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { React, useState } from "react"
 
 export default async function User({id}) {
     const resp = await fetch("https://jsonplaceholder.typicode.com/users")

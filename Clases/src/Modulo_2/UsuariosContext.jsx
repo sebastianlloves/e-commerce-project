@@ -1,16 +1,10 @@
 import { createContext, useContext } from "react";
 
+export const usersContext = createContext(null);
 
-export const usersContext = createContext(null)
-
-export function useUsers(){
-    return useContext(usersContext)
+export function useUsers() {
+  return useContext(usersContext);
 }
-
-
-
-
-
 
 export const data = [
   {
