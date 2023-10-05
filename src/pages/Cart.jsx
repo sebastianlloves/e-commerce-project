@@ -1,17 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useProducts } from "../Products/ProductsProvider";
-import { useCart, useCartDispatch } from "./CartProvider";
-import SelectorCantidad from "./SelectorCantidad";
+import { useProducts } from "../Components/Products/ProductsProvider";
+import { useCart, useCartDispatch } from "../Components/Cart/CartProvider";
+import CountSelector from "../Components/Cart/CountSelector";
 
 function CartList() {
   return (
-    <div className="m-auto flex w-3/4 max-w-screen-lg flex-col py-24">
-      <h2 className="my-10 text-left text-3xl font-semibold uppercase text-slate-800">
-        Mi Carrito
-      </h2>
-      <BotonSeguirComprando />
-      {useCart().length > 0 ? <ListaCompra /> : <EmptyCart />}
+    <div className="h-screen w-full bg-white">
+      <div className="m-auto flex w-3/4 max-w-screen-lg flex-col py-24">
+        <h2 className="my-10 text-left text-3xl font-semibold uppercase text-slate-800">
+          Mi Carrito
+        </h2>
+        <BotonSeguirComprando />
+        {useCart().length > 0 ? <ListaCompra /> : <EmptyCart />}
+      </div>
     </div>
   );
 }
@@ -72,7 +74,7 @@ function ListaCompra() {
                     </p>
                   </div>
                   <div className="flex w-1/4 items-center justify-center text-sm">
-                    <SelectorCantidad item={item} />
+                    <CountSelector item={item} />
                     <div className="mx-4 flex"></div>
                   </div>
                   <div className="flex flex-col items-center">
@@ -105,11 +107,13 @@ function ListaCompra() {
           <p>Subtotal</p>
           <p>
             ${" "}
-            {articlesCart.reduce(
-              (prevValue, currentValue) =>
-                prevValue + currentValue.price * currentValue.quantity,
-              0
-            )}
+            {articlesCart
+              .reduce(
+                (prevValue, currentValue) =>
+                  prevValue + currentValue.price * currentValue.quantity,
+                0
+              )
+              .toFixed(2)}
           </p>
         </div>
         <p className="mt-0.5 text-sm text-gray-500">

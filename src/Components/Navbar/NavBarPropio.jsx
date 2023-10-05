@@ -1,5 +1,5 @@
-import BotonesMenu from "./BotonesMenu";
-import Carrito from "./Carrito";
+import BotonesMenu from "./MenuButtons";
+import Carrito from "./CartButton";
 import Hamburguesa from "./Hamburguesa";
 import Logo from "./Logo";
 import React from "react";

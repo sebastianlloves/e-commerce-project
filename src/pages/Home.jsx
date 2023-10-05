@@ -1,5 +1,5 @@
-import Tarjeta from "./Tarjeta";
-import { useProducts } from "./ProductsProvider";
+import Tarjeta from "../Components/Products/Card";
+import { useProducts } from "../Components/Products/ProductsProvider";
 import React from "react";
 
 function Home() {

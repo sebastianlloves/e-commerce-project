@@ -1,7 +1,7 @@
 import { React } from "react";
 import { useCartDispatch } from "./CartProvider";
 
-function SelectorCantidad({ item }) {
+function CountSelector({ item }) {
   const dispatch = useCartDispatch();
 
   function handleAumentar() {
@@ -44,4 +44,4 @@ function SelectorCantidad({ item }) {
   );
 }
 
-export default SelectorCantidad;
+export default CountSelector;
