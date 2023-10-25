@@ -1,49 +1,43 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useProducts } from "../Components/Products/ProductsProvider";
-import { useCart, useCartDispatch } from "../Components/Cart/CartProvider";
+import { useSelector } from "react-redux";
+import { selectCartItems } from "../features/cart/cartSlice";
+import {selectAllProducts} from '../features/products/productsSlice'
 import CountSelector from "../Components/Cart/CountSelector";
 
 function CartList() {
+  const cartItems = useSelector(selectCartItems)
+  console.log(cartItems)
+
+  
   return (
     <div className="h-screen w-full bg-white">
       <div className="m-auto flex w-3/4 max-w-screen-lg flex-col py-24">
+
         <h2 className="my-10 text-left text-3xl font-semibold uppercase text-slate-800">
           Mi Carrito
         </h2>
-        <BotonSeguirComprando />
-        {useCart().length > 0 ? <ListaCompra /> : <EmptyCart />}
+
+        <Link to="../">
+          <button>Seguir Comprando</button>
+        </Link>
+
+        {cartItems.length > 0 ? <ListaCompra /> : <EmptyCart />}
+
       </div>
     </div>
   );
 }
 
-function BotonSeguirComprando() {
-  return (
-    <Link to="../">
-      <button>Seguir Comprando</button>
-    </Link>
-  );
-}
 
 function ListaCompra() {
-  const products = useProducts();
-  const dispatch = useCartDispatch();
-  const articlesCart = useCart().map(
-    ({ id, quantity, colorSelected, sizeSelected }) => {
-      return {
-        ...products.find((p) => p.id === id),
-        quantity,
-        colorSelected,
-        sizeSelected,
-      };
-    }
-  );
+  
+  const cartItems = useSelector(selectCartItems);
 
   return (
     <div>
       <ul role="list" className="m-6 divide-y divide-gray-200">
-        {articlesCart.map((item) => (
+        {cartItems.map((item) => (
           <li
             key={`${item.id}-${item.colorSelected}-${item.sizeSelected}`}
             className="flex items-center py-6"
@@ -140,4 +134,4 @@ function EmptyCart() {
   );
 }
 
-export default CartList;
+export default CartList

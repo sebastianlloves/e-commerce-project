@@ -7,7 +7,6 @@ import { getProductsThunk } from "../features/products/productsSlice";
 const Home = () => {
   const { loading, error, products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
-  console.log({ loading, error, products });
 
   useEffect(() => {
     if (!loading && products.length === 0) dispatch(getProductsThunk());

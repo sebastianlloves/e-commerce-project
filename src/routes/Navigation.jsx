@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
-import ProductDetail from "../Components/Products/ProductDetail";
+import ProductDetail from "../pages/ProductDetail";
 import CartList from "../pages/Cart";
 import WithNavbar from "./layout/WithNavbar";
 
@@ -12,8 +12,8 @@ const Navigation = () => {
         <Route path="/" element={<WithNavbar />}>
           <Route index element={<Home />} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/cart" element={<CartList />} />
         </Route>
-        <Route path="/cart" element={<CartList />} />
       </Routes>
     </Router>
   );
