@@ -1,0 +1,48 @@
+{
+  "version": "2.0.0",
+  "presentation": {
+    "echo": false,
+    "reveal": "always",
+    "focus": false,
+    "panel": "dedicated",
+    "showReuseMessage": true
+  },
+  "tasks": [
+    {
+      "label": "Crear terminales",
+      "dependsOn": ["server", "client", "helper/installer"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "client",
+      "type": "shell",
+      "command": "npm run dev",
+      "isBackground": true,
+      "problemMatcher": [],
+      "icon": { "color": "terminal.ansiCyan", "id": "eye-watch" }
+    },
+    {
+      "label": "server",
+      "type": "shell",
+      "command": "npm run server",
+      "isBackground": true,
+      "problemMatcher": [],
+      "icon": { "color": "terminal.ansiYellow", "id": "cloud-upload" }
+    },
+    {
+      "label": "helper/installer",
+      "type": "shell",
+      "command": "git st",
+      "isBackground": true,
+      "problemMatcher": [],
+      "icon": { "color": "terminal.ansiGreen", "id": "lightbulb" }
+    }
+  ]
+}
