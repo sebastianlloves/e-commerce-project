@@ -1,10 +1,11 @@
 import React from "react";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
-import { useCart } from "../Cart/CartProvider";
+import { useSelector } from "react-redux";
+import { selectCartItems } from "../../features/cart/cartSlice";
 import { Link } from "react-router-dom";
 
 function Carrito() {
-  const cart = useCart();
+  const cartItems = useSelector(selectCartItems)
 
   return (
     <div className="flow-root">
@@ -14,7 +15,10 @@ function Carrito() {
           aria-hidden="true"
         />
         <span className="ml-2 text-sm font-medium text-slate-300 group-hover:text-slate-50">
-          {cart.reduce((previo, actual) => previo + actual.quantity, 0)}
+          {cartItems.reduce(
+            (previo, actual) => previo + Number(actual.countSelected),
+            0
+          )}
         </span>
         <span className="sr-only">items in cart, view bag</span>
       </Link>

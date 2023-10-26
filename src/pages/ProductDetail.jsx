@@ -14,8 +14,8 @@ const ProductDetail = () => {
   const [sizeSelected, setSizeSelected] = useState(null);
   const [countSelected, setCountSelected] = useState(1);
 
-  console.log(product);
-  console.log({ colorSelected, sizeSelected, countSelected });
+  // console.log(product);
+  // console.log({ colorSelected, sizeSelected, countSelected });
 
   if (!product) return <h1>No es encontró el producto solicitado</h1>;
 
@@ -87,9 +87,9 @@ const ProductDetail = () => {
           {/* Selección Cantidad */}
           <CountSelection
             countSelected={countSelected}
-            handleSelect={(e) => setCountSelected(e.target.value)}
+            handleSelect={(e) => setCountSelected(Number(e.target.value))}
           />
-          <AddToCartButton selection={{id, colorSelected, sizeSelected, countSelected}} />
+          <AddToCartButton selection={{id, colorSelected, sizeSelected, countSelected, ...product}} />
         </div>
       </div>
     </div>
