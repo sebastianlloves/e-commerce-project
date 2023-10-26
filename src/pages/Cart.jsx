@@ -5,9 +5,11 @@ import { selectCartItems } from "../features/cart/cartSlice";
 import {selectAllProducts} from '../features/products/productsSlice'
 import CountSelector from "../Components/Cart/CountSelector";
 
-function CartList() {
-  const cartItems = useSelector(selectCartItems)
-  console.log(cartItems)
+function Cart() {
+  const products = useSelector(selectAllProducts)
+  const cartItems = useSelector(selectCartItems).map( (item) => {return{...item, ...products.find(p => p.id === item.id)}})
+  console.log(products)
+  console.log(cartItems);
 
   
   return (
@@ -22,7 +24,7 @@ function CartList() {
           <button>Seguir Comprando</button>
         </Link>
 
-        {cartItems.length > 0 ? <ListaCompra /> : <EmptyCart />}
+        {/* {cartItems.length > 0 ? <ListaCompra /> : <EmptyCart />} */}
 
       </div>
     </div>
@@ -134,4 +136,4 @@ function EmptyCart() {
   );
 }
 
-export default CartList
+export default Cart

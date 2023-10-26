@@ -35,14 +35,6 @@
       "isBackground": true,
       "problemMatcher": [],
       "icon": { "color": "terminal.ansiYellow", "id": "cloud-upload" }
-    },
-    {
-      "label": "helper/installer",
-      "type": "shell",
-      "command": "git st",
-      "isBackground": true,
-      "problemMatcher": [],
-      "icon": { "color": "terminal.ansiGreen", "id": "lightbulb" }
     }
   ]
 }

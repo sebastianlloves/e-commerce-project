@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
 import ProductDetail from "../pages/ProductDetail";
-import CartList from "../pages/Cart";
+import Cart from "../pages/Cart";
 import WithNavbar from "./layout/WithNavbar";
 
 const Navigation = () => {
@@ -12,7 +12,7 @@ const Navigation = () => {
         <Route path="/" element={<WithNavbar />}>
           <Route index element={<Home />} />
           <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="/cart" element={<CartList />} />
+          <Route path="/cart" element={<Cart />} />
         </Route>
       </Routes>
     </Router>

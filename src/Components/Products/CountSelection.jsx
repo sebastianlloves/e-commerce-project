@@ -9,13 +9,13 @@ const CountSelection = ({ countSelected, handleSelect }) => {
       <select
         name="count"
         onChange={handleSelect}
+        value={countSelected}
         className="m-3 block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 shadow-indigo-900 focus:border-indigo-500 focus:shadow-md focus:outline-none focus:ring-indigo-500"
       >
         {count.map((number) => (
           <option
             value={number}
             key={number}
-            selected={countSelected === number}
           >
             {number}
           </option>
