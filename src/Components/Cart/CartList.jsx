@@ -56,7 +56,7 @@ const CartList = () => {
                       <div className="mx-4 flex"></div>
                     </div>
                     <div className="flex flex-col items-center">
-                      <p>{`U$D ${price}`}</p>
+                      <p>{`U$D ${price * countSelected}`}</p>
                       <button
                         type="button"
                         className="pt-8 font-medium text-indigo-600 hover:text-indigo-500"

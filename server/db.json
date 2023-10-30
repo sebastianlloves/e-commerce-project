@@ -20,13 +20,11 @@
       "colors": [
         {
           "name": "Negro",
-          "clase": "bg-slate-900",
-          "selectedClass": "ring-gray-400"
+          "clase": "bg-slate-900/80"
         },
         {
           "name": "Gris Oscuro",
-          "clase": "bg-gray-900",
-          "selectedClass": "ring-gray-400"
+          "clase": "bg-gray-400/80"
         }
       ]
     },
@@ -53,18 +51,15 @@
       "colors": [
         {
           "name": "Azul Marino",
-          "clase": "bg-sky-800",
-          "selectedClass": "ring-gray-400"
+          "clase": "bg-sky-900/80"
         },
         {
           "name": "Rojo",
-          "clase": "bg-red-900",
-          "selectedClass": "ring-gray-400"
+          "clase": "bg-red-900/80"
         },
         {
           "name": "Amarillo",
-          "clase": "bg-amber-400",
-          "selectedClass": "ring-gray-400"
+          "clase": "bg-amber-600/80"
         }
       ]
     },
@@ -91,13 +86,11 @@
       "colors": [
         {
           "name": "Marrón",
-          "clase": "bg-amber-950",
-          "selectedClass": "ring-gray-400"
+          "clase": "bg-amber-950/80"
         },
         {
           "name": "Azul Marino",
-          "clase": "bg-sky-800",
-          "selectedClass": "ring-gray-400"
+          "clase": "bg-sky-800/80"
         }
       ]
     },
