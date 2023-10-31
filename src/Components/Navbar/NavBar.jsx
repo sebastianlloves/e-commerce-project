@@ -4,9 +4,9 @@ import Hamburguesa from "./Hamburguesa";
 import Logo from "./Logo";
 import React from "react";
 
-export default function NavBarPropio() {
+export default function NavBar() {
   return (
-    <header className="fixed top-0 w-full bg-slate-900">
+    <header className="fixed z-10 top-0 w-full bg-slate-100">
       <nav
         aria-label="Top"
         className=" mx-auto flex h-16 max-w-7xl items-center justify-between px-8"

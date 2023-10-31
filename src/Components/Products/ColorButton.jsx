@@ -8,7 +8,6 @@ const ColorButton = ({ color, colorSelected, handleClick }) => {
       ? " shadow-md shadow-indigo-500/90 ring-[1.2px] ring-indigo-500 ring-offset-[0.5px]"
       : "shadow-sm"
   } active:-translate-y-0.5 `;
-  console.log(color.clase)
 
   return <button className={clases} onClick={handleClick}></button>;
 };

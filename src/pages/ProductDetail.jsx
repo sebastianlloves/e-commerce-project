@@ -1,24 +1,51 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectProductById } from "../features/products/productsSlice";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectProductById,
+  getProductsThunk,
+} from "../features/products/productsSlice";
 import ColorButton from "../Components/Products/ColorButton";
 import SizeColor from "../Components/Products/SizeColor";
 import CountSelection from "../Components/Products/CountSelection";
 import AddToCartButton from "../Components/Products/AddToCartButton";
+import { Spinner } from "../Components/Spinner";
 
 const ProductDetail = () => {
   const id = Number(useParams().id);
   const product = useSelector((state) => selectProductById(state, id));
+
+  const { loading, error, products } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!loading && products.length === 0) {
+      dispatch(getProductsThunk())
+      console.log('Efecto desde ProductDetail')
+    };
+  }, []);
+
   const [colorSelected, setColorSelected] = useState(null);
   const [sizeSelected, setSizeSelected] = useState(null);
   const [countSelected, setCountSelected] = useState(1);
 
-  // console.log(product);
-  // console.log({ colorSelected, sizeSelected, countSelected });
 
-  if (!product) return <h1>No es encontró el producto solicitado</h1>;
+    if (!loading && error)
+    return (
+      <div className="bg-slate-50">
+        <h1>No es encontró el producto solicitado</h1>
+      </div>
+    );
 
+  if (!product) {
+    return (
+      <div className="h-screen w-screen">
+        <div className=" transition-all duration-300 mx-auto flex justify-center items-center h-full max-w-screen-xl bg-slate-50">
+          <Spinner/>
+        </div>
+      </div>
+    );
+  }
   const { colors, sizes, name, images, description, price } = product;
 
   return (
@@ -89,7 +116,15 @@ const ProductDetail = () => {
             countSelected={countSelected}
             handleSelect={(e) => setCountSelected(Number(e.target.value))}
           />
-          <AddToCartButton selection={{id, colorSelected, sizeSelected, countSelected, ...product}} />
+          <AddToCartButton
+            selection={{
+              id,
+              colorSelected,
+              sizeSelected,
+              countSelected,
+              ...product,
+            }}
+          />
         </div>
       </div>
     </div>
@@ -97,4 +132,3 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
-

@@ -9,7 +9,10 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!loading && products.length === 0) dispatch(getProductsThunk());
+    if (!loading && products.length === 0) {
+      dispatch(getProductsThunk())
+      console.log('Efecto desde Home')
+    }
   }, []);
 
   

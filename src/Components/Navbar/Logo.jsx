@@ -1,16 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FireIcon } from "@heroicons/react/20/solid";
 
 function Logo() {
   return (
     <div className="m-2 flex">
       <Link to="/">
-        <span className="sr-only">Your Company</span>
-        <img
-          className="h-8 w-auto text-white"
-          src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-          alt=""
-        />
+        <FireIcon className="w-10 text-sky-900" />
       </Link>
     </div>
   );

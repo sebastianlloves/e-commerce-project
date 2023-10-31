@@ -10,7 +10,7 @@
   "tasks": [
     {
       "label": "Crear terminales",
-      "dependsOn": ["server", "client", "helper/installer"],
+      "dependsOn": ["server", "client"],
       "group": {
         "kind": "build",
         "isDefault": true

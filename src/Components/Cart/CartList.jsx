@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectCartItems, deleteItem } from "../../features/cart/cartSlice";
 import { Link } from "react-router-dom";
 import CountSelector from "./CountSelector";
+import { TrashIcon } from "@heroicons/react/24/outline";
 
 const CartList = () => {
   const cartItems = useSelector(selectCartItems);
@@ -52,20 +53,17 @@ const CartList = () => {
                       </p>
                     </div>
                     <div className="flex w-1/4 items-center justify-center text-sm">
-                      <CountSelector itemData={{idCartItem, countSelected}} />
+                      <CountSelector itemData={{ idCartItem, countSelected }} />
                       <div className="mx-4 flex"></div>
                     </div>
                     <div className="flex flex-col items-center">
-                      <p>{`U$D ${price * countSelected}`}</p>
-                      <button
-                        type="button"
-                        className="pt-8 font-medium text-indigo-600 hover:text-indigo-500"
+                      <p>{`U$D ${(price * countSelected).toFixed(2)}`}</p>
+                      <TrashIcon
+                        className="w-6 cursor-pointer pt-8 text-indigo-700 hover:text-indigo-500 duration-200"
                         onClick={() => {
                           dispatch(deleteItem(idCartItem));
                         }}
-                      >
-                        Remover
-                      </button>
+                      />
                     </div>
                   </div>
                 </div>
@@ -94,8 +92,7 @@ const CartList = () => {
         </p>
         <div className="mt-6">
           <a
-            href="#"
-            className="my-10 flex w-1/4 items-center justify-center rounded-md border border-transparent bg-sky-800 px-6 py-3 text-base font-medium text-white shadow-md shadow-sky-700 hover:bg-sky-900"
+            className="my-10 flex w-1/4 items-center justify-center rounded-md border border-transparent bg-sky-900 px-6 py-3 text-base font-medium text-white shadow-sm shadow-cyan-700 hover:bg-sky-950 duration-300 cursor-pointer"
           >
             Finalizar
           </a>

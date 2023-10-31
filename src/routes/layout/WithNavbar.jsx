@@ -1,11 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import NavBarPropio from "../../Components/Navbar/NavBarPropio";
+import NavBar from "../../Components/Navbar/NavBar";
 
 const WithNavbar = () => {
   return (
     <div className="bg-white" >
-      <NavBarPropio />
+      <NavBar />
       <Outlet />
     </div>
   );
