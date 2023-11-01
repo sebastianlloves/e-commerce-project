@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 export default {
   content: [
     "./Clases/index.html",
@@ -8,7 +10,9 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {fontFamily: {
+        'sans': ['"Proxima Nova"', ...defaultTheme.fontFamily.sans],
+      }},
   },
   plugins: [],
 };

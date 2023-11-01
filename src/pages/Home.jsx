@@ -1,21 +1,11 @@
 import Tarjeta from "../Components/Products/Card";
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
 import { Spinner } from "../Components/Spinner.jsx";
-import { getProductsThunk } from "../features/products/productsSlice";
+import { useProducts } from "../features/products/useProducts";
 
 const Home = () => {
-  const { loading, error, products } = useSelector((state) => state.products);
-  const dispatch = useDispatch();
+  const { loading, error, products } = useProducts();
 
-  useEffect(() => {
-    if (!loading && products.length === 0) {
-      dispatch(getProductsThunk())
-      console.log('Efecto desde Home')
-    }
-  }, []);
-
-  
   if (!loading && error)
     return (
       <h1 className="text-center text-4xl font-bold text-gray-950">
