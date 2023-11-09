@@ -5,7 +5,7 @@ function MenuButtons({ menuOption }) {
   return (
     <Link
       to={`/${menuOption.value}`}
-      className="group relative mx-4 flex w-40 items-center justify-center overflow-hidden px-4 text-base font-medium text-slate-300 transition-all duration-500 hover:scale-105 hover:text-slate-200"
+      className="group relative mx-4 flex w-40 items-center justify-center overflow-hidden px-4 text-base font-medium text-slate-300 transition-all duration-500 hover:text-slate-200"
     >
       <span>{menuOption.title}</span>
     </Link>
