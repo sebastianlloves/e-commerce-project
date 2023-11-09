@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "../pages/Home";
+import Products from "../pages/Products";
 import ProductDetail from "../pages/ProductDetail";
 import Cart from "../pages/Cart";
 import WithNavbar from "./layout/WithNavbar";
@@ -11,7 +11,8 @@ const Navigation = () => {
     <Router>
       <Routes>
         <Route path="/" element={<WithNavbar />}>
-          <Route index element={<Home />} />
+          <Route index element={<Products />} />
+          <Route path="/:category" element={<Products />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/addArticle" element={<AddArticle />} />

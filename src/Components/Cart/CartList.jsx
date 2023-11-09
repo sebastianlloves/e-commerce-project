@@ -18,7 +18,7 @@ const CartList = () => {
             colorSelected,
             sizeSelected,
             countSelected,
-            images,
+            imagesURL,
             name,
             price,
             idCartItem,
@@ -32,8 +32,7 @@ const CartList = () => {
                 className="flex h-24 w-24 flex-shrink-0 items-center justify-center overflow-hidden rounded-md border-transparent p-2 shadow-md shadow-stone-300"
               >
                 <img
-                  src={images[0].src}
-                  alt={images[0].alt}
+                  src={imagesURL[0]}
                   className="max-h-full max-w-full object-cover object-center"
                 />
               </Link>
@@ -43,7 +42,7 @@ const CartList = () => {
                   <div className="flex justify-between text-base font-medium text-gray-900">
                     <div className="w-1/4 ">
                       <h3 className="mb-4">
-                        <Link to={`../product/${id}`}>{name}</Link>
+                        <Link to={`../product/${id}`} className="line-clamp-1">{name}</Link>
                       </h3>
                       <p className="mt-1 text-sm font-normal text-gray-500">
                         Color: {colorSelected}

@@ -18,12 +18,12 @@ const ProductDetail = () => {
     if (!loading && products.length === 0) {
       dispatch(getProductsThunk());
     }
-    if (product) setColorSelected(product.colors[0].name)
+    if (product) setColorSelected(product.colors[0].name);
   }, [product]);
 
   const [colorSelected, setColorSelected] = useState(null);
   const [sizeSelected, setSizeSelected] = useState(null);
-  const [countSelected, setCountSelected] = useState(1);
+  const [countSelected, setCountSelected] = useState(undefined);
 
   if (!loading && error)
     return (
@@ -84,7 +84,10 @@ const ProductDetail = () => {
                     colorSelected={colorSelected}
                     handleClick={() => {
                       setColorSelected(color.name);
-                      if (color.name !== colorSelected) setSizeSelected(null);
+                      if (color.name !== colorSelected) {
+                        setSizeSelected(null)
+                        setCountSelected(1)
+                      }
                     }}
                   ></ColorButton>
                 );
@@ -108,7 +111,10 @@ const ProductDetail = () => {
                       key={size.name}
                       size={size}
                       sizeSelected={sizeSelected}
-                      handleClick={() => setSizeSelected(size.name)}
+                      handleClick={() => {
+                        setSizeSelected(size.name)
+                        if(sizeSelected !== size.name) setCountSelected(1)
+                      }}
                     />
                   );
                 })}
@@ -116,6 +122,9 @@ const ProductDetail = () => {
           </div>
           {/* Selección Cantidad */}
           <CountSelection
+            stock={sizeSelected && colors
+              .find((c) => c.name === colorSelected)
+              .sizes.find((s) => s.name === sizeSelected).stock}
             countSelected={countSelected}
             handleSelect={(e) => setCountSelected(Number(e.target.value))}
           />

@@ -1,7 +1,10 @@
 import React from "react";
 
-const CountSelection = ({ countSelected, handleSelect }) => {
-  const count = [1, 2, 3, 4, 5, 6];
+const CountSelection = ({stock = 1, countSelected, handleSelect }) => {
+  const count = [];
+  for (let index = 1; index <= stock; index++) {
+    count.push(index)    
+  }
 
   return (
     <div className="flex w-14 flex-col text-sm font-medium text-gray-900 ">

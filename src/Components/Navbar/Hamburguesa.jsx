@@ -11,7 +11,6 @@ function Hamburguesa() {
       onClick={() => setOpen(true)}
     >
       <span className="absolute -inset-0.5" />
-      <span className="sr-only">Open menu</span>
       <Bars3Icon className="h-6 w-6" aria-hidden="true" />
     </button>
   );
