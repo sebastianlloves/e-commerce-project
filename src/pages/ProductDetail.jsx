@@ -45,9 +45,9 @@ const ProductDetail = () => {
   const { colors, name, imagesURL, description, price } = product;
 
   return (
-    <div className="mx-auto grid h-min max-w-screen-xl grid-cols-1 gap-x-10 bg-slate-50 py-24 lg:grid-cols-2">
+    <div className="mx-auto grid h-min max-w-screen-md lg:max-w-screen-xl grid-cols-1 gap-x-10 bg-slate-50 py-24 lg:grid-cols-2">
       {/* Imagen */}
-      <div className="h-min w-full justify-self-center p-4 lg:border-r-2 lg:border-gray-200 lg:p-12">
+      <div className="h-min w-4/5 lg:w-full justify-self-center p-4 lg:border-r-2 lg:border-gray-200 lg:p-12">
         <div className="mx-auto overflow-hidden rounded-lg border border-gray-200 bg-white p-6 shadow-sm shadow-gray-200">
           <img
             src={imagesURL[0]}
@@ -85,8 +85,8 @@ const ProductDetail = () => {
                     handleClick={() => {
                       setColorSelected(color.name);
                       if (color.name !== colorSelected) {
-                        setSizeSelected(null)
-                        setCountSelected(1)
+                        setSizeSelected(null);
+                        setCountSelected(1);
                       }
                     }}
                   ></ColorButton>
@@ -112,8 +112,8 @@ const ProductDetail = () => {
                       size={size}
                       sizeSelected={sizeSelected}
                       handleClick={() => {
-                        setSizeSelected(size.name)
-                        if(sizeSelected !== size.name) setCountSelected(1)
+                        setSizeSelected(size.name);
+                        if (sizeSelected !== size.name) setCountSelected(1);
                       }}
                     />
                   );
@@ -122,9 +122,12 @@ const ProductDetail = () => {
           </div>
           {/* Selección Cantidad */}
           <CountSelection
-            stock={sizeSelected && colors
-              .find((c) => c.name === colorSelected)
-              .sizes.find((s) => s.name === sizeSelected).stock}
+            stock={
+              sizeSelected &&
+              colors
+                .find((c) => c.name === colorSelected)
+                .sizes.find((s) => s.name === sizeSelected).stock
+            }
             countSelected={countSelected}
             handleSelect={(e) => setCountSelected(Number(e.target.value))}
           />

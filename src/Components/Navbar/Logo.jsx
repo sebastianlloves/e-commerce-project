@@ -6,7 +6,7 @@ function Logo() {
   return (
     <div className="m-2 flex">
       <Link to="/">
-        <FireIcon className="w-11 text-[#F5F5F5]" />
+        <FireIcon className="w-11 text-[#F5F5F5] hover:text-slate-200" />
       </Link>
     </div>
   );

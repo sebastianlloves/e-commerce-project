@@ -29,7 +29,7 @@ const Products = () => {
     }) 
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <div className="mx-auto flex items-start min-h-screen max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
       {loading && (
         <div className="m-auto">
           <Spinner />
