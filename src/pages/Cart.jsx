@@ -1,14 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import ContinueShoppingButton from "../Components/Cart/ContinueShoppingButton";
 import { useSelector } from "react-redux";
 import { selectCartItems } from "../features/cart/cartSlice";
 import CartList from "../Components/Cart/CartList";
 
 function Cart() {
-  const cartItems = useSelector(selectCartItems)
+  const cartItems = useSelector(selectCartItems);
   // console.log(cartItems);
 
-  
   return (
     <div className="min-h-screen w-full bg-white">
       <div className="m-auto flex w-3/4 max-w-screen-lg flex-col py-24">
@@ -17,12 +16,7 @@ function Cart() {
             Carrito
           </h2>
 
-          <Link
-            to="../"
-            className="self-end rounded-md border border-sky-900/30 px-5 py-2 text-slate-500 hover:shadow-md shadow-sky-300/70 duration-300 font-normal hover:bg-sky-900/75 hover:text-white"
-          >
-            <button>Seguir Comprando</button>
-          </Link>
+          <ContinueShoppingButton />
         </div>
 
         {cartItems.length > 0 ? <CartList /> : <EmptyCart />}
@@ -30,8 +24,6 @@ function Cart() {
     </div>
   );
 }
-
-
 
 function EmptyCart() {
   return (
@@ -41,4 +33,4 @@ function EmptyCart() {
   );
 }
 
-export default Cart
+export default Cart;
