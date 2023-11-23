@@ -1,16 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ChevronLeftIcon } from "@heroicons/react/20/solid";
 
 const ContinueShoppingButton = () => {
   return (
-    <Link
-      to="../"
-      className="group flex rounded-full w-min hover:w-max border border-sky-900/30 p-2 font-normal text-slate-500 shadow-sky-300/70 transition-all duration-700 hover:shadow-md"
-    >
-      <ChevronLeftIcon className="w-8" />
-      <button className="group-hover:opacity-100 absolute opacity-0 transition-all duration-700 group-hover:static">
-        Seguir Comprando
+    <Link to="../">
+      <button className="group relative mb-2 me-2 inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-sky-900/60 to-indigo-800/60 p-0.5 text-sm font-medium text-gray-900 hover:text-white focus:outline-none focus:ring-[0.5px] focus:ring-indigo-500/70">
+        <span className="relative rounded-md bg-white px-5 py-2.5 transition-all duration-200 ease-in group-hover:bg-opacity-0">
+          Seguir Comprando
+        </span>
       </button>
     </Link>
   );
