@@ -27,7 +27,7 @@
       "isBackground": true,
       "problemMatcher": [],
       "icon": { "color": "terminal.ansiCyan", "id": "eye-watch" }
-    },
+    }/* ,
     {
       "label": "server",
       "type": "shell",
@@ -35,6 +35,6 @@
       "isBackground": true,
       "problemMatcher": [],
       "icon": { "color": "terminal.ansiYellow", "id": "cloud-upload" }
-    }
+    } */
   ]
 }
