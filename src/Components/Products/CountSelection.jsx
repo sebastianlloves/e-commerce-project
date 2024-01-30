@@ -13,7 +13,7 @@ const CountSelection = ({stock = 1, countSelected, handleSelect }) => {
         name="count"
         onChange={handleSelect}
         value={countSelected}
-        className="m-3 w-16 block rounded-md border border-gray-300 bg-whit p-3 text-sm text-gray-900 shadow-indigo-900 focus:border-indigo-500 focus:shadow-md focus:outline-none focus:ring-indigo-500"
+        className="m-3 w-16 block rounded-md border border-gray-300 bg-whit p-3 text-sm text-gray-900 shadow-azure-900 focus:border-azure-500 focus:shadow-md focus:outline-none focus:ring-azure-500"
       >
         {count.map((number) => (
           <option
