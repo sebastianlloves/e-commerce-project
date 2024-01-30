@@ -7,13 +7,13 @@ const CountSelection = ({stock = 1, countSelected, handleSelect }) => {
   }
 
   return (
-    <div className="flex w-14 flex-col text-sm font-medium text-gray-900 ">
+    <div className="flex flex-col text-sm font-medium text-gray-900 ">
       <h3 className="my-4 text-base font-semibold text-gray-900">Cantidad:</h3>
       <select
         name="count"
         onChange={handleSelect}
         value={countSelected}
-        className="m-3 block w-full rounded-md border border-gray-300 bg-whit p-3 text-sm text-gray-900 shadow-indigo-900 focus:border-indigo-500 focus:shadow-md focus:outline-none focus:ring-indigo-500"
+        className="m-3 w-16 block rounded-md border border-gray-300 bg-whit p-3 text-sm text-gray-900 shadow-indigo-900 focus:border-indigo-500 focus:shadow-md focus:outline-none focus:ring-indigo-500"
       >
         {count.map((number) => (
           <option
