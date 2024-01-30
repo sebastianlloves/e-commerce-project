@@ -11,7 +11,7 @@ const CartList = () => {
 
   return (
     <div>
-      <ul role="list" className="m-6 divide-y divide-gray-200">
+      <ul role="list" className="mx-6 divide-y divide-gray-200">
         {cartItems.map(
           ({
             id,
@@ -42,7 +42,9 @@ const CartList = () => {
                   <div className="flex justify-between text-base font-medium text-gray-900">
                     <div className="w-1/4 ">
                       <h3 className="mb-4">
-                        <Link to={`../product/${id}`} className="line-clamp-1">{name}</Link>
+                        <Link to={`../product/${id}`} className="line-clamp-1">
+                          {name}
+                        </Link>
                       </h3>
                       <p className="mt-1 text-sm font-normal text-gray-500">
                         Color: {colorSelected}
@@ -55,10 +57,10 @@ const CartList = () => {
                       <CountSelector itemData={{ idCartItem, countSelected }} />
                       <div className="mx-4 flex"></div>
                     </div>
-                    <div className="flex flex-col items-center">
+                    <div className="flex w-1/5 flex-col items-center">
                       <p>{`U$D ${(price * countSelected).toFixed(2)}`}</p>
                       <TrashIcon
-                        className="w-6 cursor-pointer pt-8 text-indigo-700 hover:text-indigo-500 duration-200"
+                        className="w-6 cursor-pointer pt-8 text-indigo-700 duration-200 hover:text-indigo-500"
                         onClick={() => {
                           dispatch(deleteItem(idCartItem));
                         }}
@@ -72,10 +74,10 @@ const CartList = () => {
         )}
       </ul>
 
-      <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
+      <div className="mt-8 border-t border-gray-400 px-4 py-8 sm:px-6">
         <div className="flex justify-between text-lg font-medium text-gray-900">
           <p>Subtotal</p>
-          <p>
+          <p className="w-1/5 text-xl text-center font-bold">
             U$D{" "}
             {cartItems
               .reduce(
@@ -90,9 +92,7 @@ const CartList = () => {
           Envío e impuestos calculados al finalizar compra.
         </p>
         <div className="mt-6">
-          <a
-            className="my-10 flex w-1/4 items-center justify-center rounded-md border border-transparent bg-sky-900 px-6 py-3 text-base font-medium text-white shadow-sm shadow-cyan-700 hover:bg-sky-950 duration-300 cursor-pointer"
-          >
+          <a className="my-10 flex w-1/4 cursor-pointer items-center justify-center rounded-md border border-transparent bg-azure-950/95 px-6 py-3 text-base font-medium text-white shadow-md shadow-azure-800/80 duration-300 hover:bg-azure-950">
             Finalizar
           </a>
         </div>

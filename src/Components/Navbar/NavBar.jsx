@@ -12,7 +12,7 @@ export default function NavBar() {
   ];
 
   return (
-    <header className="fixed top-0 z-10 w-full bg-[#0A2647] py-1">
+    <header className="fixed top-0 z-10 w-full bg-azure-950 py-1">
       <nav
         aria-label="Top"
         className=" mx-auto flex h-16 max-w-7xl items-center justify-between px-8"

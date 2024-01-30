@@ -45,7 +45,7 @@ const ProductDetail = () => {
   const { colors, name, imagesURL, description, price } = product;
 
   return (
-    <div className="mx-auto grid h-min max-w-screen-md lg:max-w-screen-xl grid-cols-1 gap-x-10 bg-slate-50 py-24 lg:grid-cols-2">
+    <div className="mx-auto grid h-min max-w-screen-md lg:max-w-screen-xl grid-cols-1 gap-x-16 p-12 lg:grid-cols-2">
       {/* Imagen */}
       <div className="h-min w-4/5 lg:w-full justify-self-center p-4 lg:border-r-2 lg:border-gray-200 lg:p-12">
         <div className="mx-auto overflow-hidden rounded-lg border border-gray-200 bg-white p-6 shadow-sm shadow-gray-200">
@@ -66,7 +66,7 @@ const ProductDetail = () => {
       </div>
 
       {/* Selección */}
-      <div className="h-min px-10 lg:row-span-3 lg:px-12">
+      <div className="h-min px-10 lg:mt-12 lg:row-span-3 lg:px-12">
         <p className="text-3xl tracking-tight text-gray-900">{`U$D ${price}`}</p>
 
         <div className="mt-20 space-y-10 lg:space-y-20">

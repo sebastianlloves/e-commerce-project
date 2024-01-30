@@ -12,7 +12,7 @@ const ColorButton = ({ color, colorSelected, handleClick }) => {
   };
    const clases = `${colorClasses[color.name]}${" "} m-3 h-10 w-10 duration-300 rounded-full border border-gray-300 shadow-gray-400/50 active:-translate-y-0.5 ${
      colorSelected === color.name
-       ? " shadow-md shadow-indigo-500/90 ring-[1.2px] ring-indigo-500 ring-offset-2"
+       ? " shadow-lg ring-[2px] ring-neutral-500 ring-offset-2"
        : "shadow-sm"
    }`;
 

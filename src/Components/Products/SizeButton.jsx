@@ -4,9 +4,9 @@ const SizeButton = ({ size, sizeSelected, handleClick }) => {
  return (
    <div>
      <button
-       className={`m-3 h-14 min-w-[3.5rem]  rounded-md border border-gray-300 bg-slate-50 px-4 text-sm font-medium text-gray-600 shadow-indigo-300 active:-translate-y-0.5 ${
+       className={`m-3 h-14 min-w-[3.5rem] rounded-md border border-gray-300 bg-white px-4 text-sm font-medium text-gray-600 shadow-azure-300 transition-all duration-300 active:-translate-y-0.5 ${
          sizeSelected === size.name
-           ? "scale-110 border-indigo-500 shadow-md shadow-indigo-200/80"
+           ? "scale-110 border-azure-800 shadow-md shadow-azure-700/50"
            : "shadow-sm"
        }`}
        onClick={handleClick}

@@ -6,10 +6,10 @@ import { MinusIcon, PlusIcon } from "@heroicons/react/24/solid";
 function CountSelector({ itemData: { idCartItem, countSelected } }) {
   const dispatch = useDispatch();
   const classButtons =
-    "m-auto w-[1rem] text-slate-500 hover:font-extrabold hover:text-slate-700 group-disabled:text-slate-200 duration-200z";
+    "m-auto w-[1rem] text-slate-700 hover:font-extrabold hover:text-slate-900 group-disabled:text-slate-300 duration-200";
 
   return (
-    <div className="flex items-center rounded-md border-[1px] border-gray-100 p-2 shadow-sm">
+    <div className="flex items-center rounded-md border-[1px] border-gray-200 p-2 shadow-sm">
       <button
         className="group px-2"
         disabled={countSelected === 1}

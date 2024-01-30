@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FireIcon } from "@heroicons/react/20/solid";
 
 function Logo() {
   return (
     <div className="m-2 flex">
       <Link to="/">
-        <FireIcon className="w-11 text-[#F5F5F5] hover:text-slate-200" />
+        <img src="../../../public/assets/your brand-logos_white.png" className="w-[5.5rem] text-[#F5F5F5] hover:scale-[102%] transition-all duration-300" />
       </Link>
     </div>
   );
