@@ -23,7 +23,7 @@ function Cart() {
 function EmptyCart() {
   return (
     <h2 className="my-20 text-center text-lg font-semibold text-slate-800">
-      Tu carrito toadvía está vacío
+      Tu carrito todavía está vacío
     </h2>
   );
 }

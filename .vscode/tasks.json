@@ -1,31 +1,13 @@
 {
   "version": "2.0.0",
-  "presentation": {
-    "echo": false,
-    "reveal": "always",
-    "focus": false,
-    "panel": "dedicated",
-    "showReuseMessage": true
-  },
   "tasks": [
     {
-      "label": "Crear terminales",
-      "dependsOn": ["server", "client"],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
+      "label": "client",
+      "type": "npm",
+      "script": "dev",
       "runOptions": {
         "runOn": "folderOpen"
       },
-      "problemMatcher": []
-    },
-    {
-      "label": "client",
-      "type": "shell",
-      "command": "npm run dev",
-      "isBackground": true,
-      "problemMatcher": [],
       "icon": { "color": "terminal.ansiCyan", "id": "eye-watch" }
     }/* ,
     {
