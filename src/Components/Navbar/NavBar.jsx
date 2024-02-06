@@ -3,6 +3,7 @@ import Carrito from "./CartButton";
 import Hamburguesa from "./Hamburguesa";
 import Logo from "./Logo";
 import React from "react";
+import "./Navbar.css"
 
 export default function NavBar() {
   const menu_options = [
@@ -12,19 +13,19 @@ export default function NavBar() {
   ];
 
   return (
-    <header className="fixed top-0 z-10 w-full bg-azure-950 py-1">
+    <header className="scroll-navbar sticky top-0 z-10 flex h-16 w-full justify-center bg-azure-950 py-1 font-navbar text-base font-medium text-slate-300 shadow-[0_7px_9px_-3px_rgba(36,46,71,0.3)]">
       <nav
         aria-label="Top"
-        className=" mx-auto flex h-16 max-w-7xl items-center justify-between px-8"
+        className="flex w-full max-w-7xl items-center justify-between px-8"
       >
         <Hamburguesa />
         <Logo />
-        <div className="flex h-full justify-center space-x-6 text-slate-100 max-lg:hidden">
+        <div className="flex h-full justify-center space-x-6 max-lg:hidden">
           {menu_options.map((m) => (
             <MenuButtons key={m} menuOption={m} />
           ))}
         </div>
-        <Carrito />
+        <Carrito className="carrito" />
       </nav>
     </header>
   );

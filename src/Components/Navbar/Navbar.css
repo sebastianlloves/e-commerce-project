@@ -1,0 +1,40 @@
+@keyframes navbar_bg {
+  to {
+    background-color: rgb(222, 221, 238, 0.6);
+    backdrop-filter: blur(15px);
+    height: 50px;
+    color: #242e47;
+    font-size: 0.9rem;
+  }
+}
+
+@keyframes nav_hover {
+  to {
+    color: #071436;
+  }
+}
+
+@keyframes nav_logo {
+  to {
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+  }
+}
+
+.scroll-navbar {
+  animation: navbar_bg linear both;
+  animation-timeline: scroll(root block);
+  animation-range: 0 120px;
+
+  & :hover {
+    animation: nav_hover linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 100px;
+  }
+}
+
+.logo {
+    animation: nav_logo linear both;
+  animation-timeline: scroll(root block);
+  animation-range: 0 120px;
+}

@@ -45,7 +45,7 @@ const ProductDetail = () => {
   const { colors, name, imagesURL, description, price } = product;
 
   return (
-    <div className="mx-auto grid h-min max-w-screen-md lg:max-w-screen-xl grid-cols-1 gap-x-16 p-12 lg:grid-cols-2">
+    <div className="mx-auto vt grid h-min max-w-screen-md lg:max-w-screen-xl grid-cols-1 gap-x-16 p-12 lg:grid-cols-2">
       {/* Imagen */}
       <div className="h-min w-4/5 lg:w-full justify-self-center p-4 lg:border-r-2 lg:border-gray-200 lg:p-12">
         <div className="mx-auto overflow-hidden rounded-lg border border-gray-200 bg-white p-6 shadow-sm shadow-gray-200">
