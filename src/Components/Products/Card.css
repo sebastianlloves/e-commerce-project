@@ -2,7 +2,7 @@
   animation: show-in linear both,
     show-out linear;
   animation-timeline: view();
-  animation-range: entry 35%, exit -60%;
+  animation-range: entry 10%, exit -10%;
 }
 
 @keyframes show-in {
