@@ -6,10 +6,10 @@ import Footer from "../../Components/Footer";
 const WithNavbar = () => {
   return (
     <>
-      <div className="relative top-0 z-[-2] w-full bg-[radial-gradient(ellipse_50%_40%_at_50%_-15%,rgba(2,48,71,0.2),rgba(255,255,255,0))]">
-      <NavBar />
-      <Outlet />
-      <Footer />
+      <div className="relative top-0 z-[-2] w-full bg-[radial-gradient(ellipse_50%_40%_at_50%_-15%,rgba(2,48,71,0.2),rgba(255,255,255,0))] ">
+        <NavBar />
+        <Outlet />
+        <Footer />
       </div>
     </>
   );

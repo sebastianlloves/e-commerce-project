@@ -13,6 +13,7 @@
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "@reduxjs/toolkit": "^1.9.6",
+    "@vercel/blob": "^0.20.0",
     "axios": "^1.5.1",
     "chalk": "^5.3.0",
     "json-server": "^0.17.4",
