@@ -19,7 +19,7 @@ export default function NavBar() {
         className="flex w-full max-w-7xl items-center justify-between px-8"
       >
         <Hamburguesa />
-        <Logo />
+        <Logo className="logo" />
         <div className="flex h-full justify-center space-x-6 max-lg:hidden">
           {menu_options.map((m) => (
             <MenuButtons key={m} menuOption={m} />

@@ -34,7 +34,7 @@
 }
 
 .logo {
-    animation: nav_logo linear both;
+  animation: nav_logo linear both;
   animation-timeline: scroll(root block);
   animation-range: 0 120px;
 }
