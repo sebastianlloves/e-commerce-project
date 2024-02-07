@@ -13,7 +13,7 @@ export default function NavBar() {
   ];
 
   return (
-    <header className="scroll-navbar sticky top-0 z-10 flex h-16 w-full justify-center bg-azure-950 py-1 font-navbar text-base font-medium text-slate-300 shadow-[0_7px_9px_-3px_rgba(36,46,71,0.3)] backdrop-blur">
+    <header className="scroll-navbar sticky top-0 z-10 flex h-16 w-full justify-center bg-azure-950/95 py-1 font-navbar text-base font-medium text-slate-300 shadow-[0_7px_9px_-3px_rgba(36,46,71,0.3)] backdrop-blur">
       <nav
         aria-label="Top"
         className="flex w-full max-w-7xl items-center justify-between px-8"
@@ -22,7 +22,7 @@ export default function NavBar() {
         <Logo className="logo" />
         <div className="flex h-full justify-center space-x-6 max-lg:hidden">
           {menu_options.map((m) => (
-            <MenuButtons key={m} menuOption={m} />
+            <MenuButtons key={m.title} menuOption={m} />
           ))}
         </div>
         <Carrito className="carrito" />

@@ -7,7 +7,7 @@ function Hamburguesa() {
   return (
     <button
       type="button"
-      className="rounded-mdp-2 relative text-gray-50 lg:hidden "
+      className="hamburguesa rounded-mdp-2 relative text-gray-50 lg:hidden "
       onClick={() => setOpen(true)}
     >
       <span className="absolute -inset-0.5" />
