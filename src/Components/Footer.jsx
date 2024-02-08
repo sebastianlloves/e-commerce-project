@@ -5,7 +5,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer className="body-font relative w-full bg-gray-100 text-gray-700">
-      <div className="custom-shape-divider-bottom-1707232500">
+      <div className="custom-shape-divider-bottom-1707417843">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -28,12 +28,12 @@ const Footer = () => {
           ></path>
         </svg>
       </div>
-      <div className="mx-auto flex max-w-7xl flex-wrap items-start justify-between border py-8">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-start justify-between py-8">
         <div className="flex h-full w-1/6 flex-col items-center justify-start">
           <Link to="/">
             <img
               src="/assets/your-brand-logos_white.png"
-              className="logo -mt-6 w-[5.5rem] text-[#F5F5F5] hover:scale-[102%]"
+              className="logo-footer -mt-6 w-[5.5rem] text-[#F5F5F5] hover:scale-[102%]"
             />
           </Link>
 
@@ -95,7 +95,7 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="flex flex-wrap border text-center w-5/6 lg:w-4/6">
+        <div className="flex w-5/6 flex-wrap text-center lg:w-4/6">
           <div className="w-full px-4 md:w-1/4 lg:w-1/4">
             <h2 className="title-font mb-4 text-sm font-medium uppercase tracking-widest text-gray-900">
               About
@@ -192,7 +192,7 @@ const Footer = () => {
       </div>
       <div className="bg-gray-300">
         <div className="mx-auto px-5 py-3">
-          <p className="text-sm capitalize text-gray-700 text-center">
+          <p className="text-center text-sm capitalize text-gray-700">
             © 2024 All rights reserved{" "}
           </p>
         </div>

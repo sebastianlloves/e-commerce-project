@@ -1,5 +1,5 @@
 @keyframes navbar_bg {
-  to {
+  100% {
     background-color: rgb(222, 221, 238, 0.6);
     backdrop-filter: blur(15px);
     height: 50px;
@@ -9,13 +9,13 @@
 }
 
 @keyframes nav_hover {
-  to {
+  100% {
     color: #071436;
   }
 }
 
 @keyframes nav_logo {
-  to {
+  100% {
     filter: invert(100%);
     -webkit-filter: invert(100%);
   }
@@ -24,7 +24,7 @@
 .scroll-navbar {
   animation: navbar_bg linear both;
   animation-timeline: scroll(root block);
-  animation-range: 0 120px;
+  animation-range: 0 140px;
 
   & :hover {
     animation: nav_hover linear both;
@@ -36,5 +36,5 @@
 .logo, .hamburguesa {
   animation: nav_logo linear both;
   animation-timeline: scroll(root block);
-  animation-range: 0 120px;
+  animation-range: 0 140px;
 }
