@@ -96,7 +96,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex w-5/6 flex-wrap text-center lg:w-4/6">
-          <div className="w-full px-4 md:w-1/4 lg:w-1/4">
+          <div className="mb-4 px-4 w-1/4">
             <h2 className="title-font mb-4 text-sm font-medium uppercase tracking-widest text-gray-900">
               About
             </h2>
