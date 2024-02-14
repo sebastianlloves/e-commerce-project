@@ -1,13 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import ViewTransitionLink from "../../routes/ViewTransitionLink";
 
 function Logo() {
   return (
-    <div className="m-2 flex">
-      <Link to="/">
-        <img src="/assets/your-brand-logos_white.png" className="logo w-[5.5rem] text-[#F5F5F5] hover:scale-[102%] transition-all duration-300" />
-      </Link>
-    </div>
+    <ViewTransitionLink to="/">
+      <div className="m-2 flex">
+        <img
+          src="/assets/your-brand-logos_white.png"
+          className="logo w-[5.5rem] text-[#F5F5F5] transition-all duration-300 hover:scale-[102%]"
+        />
+      </div>
+    </ViewTransitionLink>
   );
 }
 

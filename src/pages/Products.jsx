@@ -9,7 +9,7 @@ const Products = () => {
   const { loading, error, products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   const category = useParams().category;
-  
+
   window.scrollTo(0, 0);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const Products = () => {
 
   if (!loading && error)
     return (
-      <div className="w-full h-[80vh] flex justify-center items-center">
+      <div className="flex h-[80vh] w-full items-center justify-center">
         <h1 className="text-center text-4xl font-bold text-gray-950">
           No se han podido cargar los productos
         </h1>
@@ -39,7 +39,7 @@ const Products = () => {
           <Spinner />
         </div>
       )}
-      <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-0 pb-32 sm:grid-cols-2 lg:grid-cols-4  xl:gap-x-8">
+      <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4  xl:gap-x-8">
         {filteredProducts.map((product) => (
           <Card key={product.id} product={product} />
         ))}

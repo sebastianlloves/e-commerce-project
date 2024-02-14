@@ -4,7 +4,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="body-font relative w-full bg-gray-100 text-gray-700">
+    <footer className="body-font relative w-full mt-14 bg-gray-100 text-gray-700">
       <div className="custom-shape-divider-bottom-1707417843">
         <svg
           data-name="Layer 1"
@@ -28,17 +28,17 @@ const Footer = () => {
           ></path>
         </svg>
       </div>
-      <div className="mx-auto flex max-w-7xl flex-wrap items-start justify-between py-8">
-        <div className="flex h-full w-1/6 flex-col items-center justify-start">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-start justify-center py-4 md:justify-between md:py-8">
+        <div className="mb-4 flex max-h-28 items-center gap-x-4 md:w-1/6 md:flex-col md:justify-start">
           <Link to="/">
             <img
               src="/assets/your-brand-logos_white.png"
-              className="logo-footer -mt-6 w-[5.5rem] text-[#F5F5F5] hover:scale-[102%]"
+              className="logo-footer w-[5.5rem] text-[#F5F5F5] hover:scale-[102%] md:-mt-6"
             />
           </Link>
 
-          <div className="inline-flex justify-center gap-x-4">
-            <Link to="/" className="text-gray-500 hover:text-gray-700">
+          <div className="flex basis-32 justify-center gap-x-3">
+            <Link to="/" className=" text-gray-500 hover:text-gray-700">
               <svg
                 fill="currentColor"
                 strokeLinecap="round"
@@ -50,7 +50,7 @@ const Footer = () => {
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
               </svg>
             </Link>
-            <Link to="/" className="text-gray-500 hover:text-gray-700">
+            <Link to="/" className=" text-gray-500 hover:text-gray-700">
               <svg
                 fill="currentColor"
                 strokeLinecap="round"
@@ -62,7 +62,7 @@ const Footer = () => {
                 <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
               </svg>
             </Link>
-            <Link to="/" className="text-gray-500 hover:text-gray-700">
+            <Link to="/" className=" text-gray-500 hover:text-gray-700">
               <svg
                 fill="none"
                 stroke="currentColor"
@@ -76,7 +76,7 @@ const Footer = () => {
                 <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
               </svg>
             </Link>
-            <Link to="/" className="text-gray-500 hover:text-gray-700">
+            <Link to="/" className=" text-gray-500 hover:text-gray-700">
               <svg
                 fill="currentColor"
                 stroke="currentColor"
@@ -95,98 +95,102 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="flex w-5/6 flex-wrap text-center lg:w-4/6">
-          <div className="mb-4 px-4 w-1/4">
-            <h2 className="title-font mb-4 text-sm font-medium uppercase tracking-widest text-gray-900">
-              About
-            </h2>
-            <nav className="list-none">
-              <li className="mt-3">
-                <Link
-                  to="/"
-                  className="cursor-pointer text-gray-500 hover:text-gray-900"
-                >
-                  Company
-                </Link>
-              </li>
-              <li className="mt-3">
-                <Link
-                  to="/"
-                  className="cursor-pointer text-gray-500 hover:text-gray-900"
-                >
-                  Careers
-                </Link>
-              </li>
-            </nav>
+        <div className="flex w-5/6 flex-wrap justify-center gap-x-8 text-center lg:w-4/6">
+          <div className="flex flex-0 flex-nowrap gap-x-8 border">
+            <div className="mb-4 w-1/5 ">
+              <h2 className="title-font mb-4 text-sm font-medium uppercase tracking-widest text-gray-900">
+                About
+              </h2>
+              <nav className="list-none">
+                <li className="mt-3">
+                  <Link
+                    to="/"
+                    className="cursor-pointer text-gray-500 hover:text-gray-900"
+                  >
+                    Company
+                  </Link>
+                </li>
+                <li className="mt-3">
+                  <Link
+                    to="/"
+                    className="cursor-pointer text-gray-500 hover:text-gray-900"
+                  >
+                    Careers
+                  </Link>
+                </li>
+              </nav>
+            </div>
+            <div className="w-1/5 min-w-max">
+              <h2 className="title-font mb-4 text-sm font-medium uppercase tracking-widest text-gray-900">
+                Support
+              </h2>
+              <nav className="list-none">
+                <li className="mt-3">
+                  <Link
+                    to="/"
+                    className="cursor-pointer text-gray-500 hover:text-gray-900"
+                  >
+                    Contact Support
+                  </Link>
+                </li>
+                <li className="mt-3">
+                  <Link
+                    to="/"
+                    className="cursor-pointer text-gray-500 hover:text-gray-900"
+                  >
+                    Help Resources
+                  </Link>
+                </li>
+              </nav>
+            </div>
           </div>
-          <div className="w-full px-4 md:w-1/4 lg:w-1/4">
-            <h2 className="title-font mb-4 text-sm font-medium uppercase tracking-widest text-gray-900">
-              Support
-            </h2>
-            <nav className="list-none">
-              <li className="mt-3">
-                <Link
-                  to="/"
-                  className="cursor-pointer text-gray-500 hover:text-gray-900"
-                >
-                  Contact Support
-                </Link>
-              </li>
-              <li className="mt-3">
-                <Link
-                  to="/"
-                  className="cursor-pointer text-gray-500 hover:text-gray-900"
-                >
-                  Help Resources
-                </Link>
-              </li>
-            </nav>
-          </div>
-          <div className="w-full px-4 md:w-1/4 lg:w-1/4">
-            <h2 className="title-font mb-4 text-sm font-medium uppercase tracking-widest text-gray-900">
-              Platform
-            </h2>
-            <nav className="list-none">
-              <li className="mt-3">
-                <Link
-                  to="/"
-                  className="cursor-pointer text-gray-500 hover:text-gray-900"
-                >
-                  Terms &amp; Privacy
-                </Link>
-              </li>
-              <li className="mt-3">
-                <Link
-                  to="/"
-                  className="cursor-pointer text-gray-500 hover:text-gray-900"
-                >
-                  FAQ
-                </Link>
-              </li>
-            </nav>
-          </div>
-          <div className="w-full px-4 md:w-1/4 lg:w-1/4">
-            <h2 className="title-font mb-4 text-sm font-medium uppercase tracking-widest text-gray-900">
-              Contact
-            </h2>
-            <nav className="list-none">
-              <li className="mt-3">
-                <Link
-                  to="/"
-                  className="cursor-pointer text-gray-500 hover:text-gray-900"
-                >
-                  Send a Message
-                </Link>
-              </li>
-              <li className="mt-3">
-                <Link
-                  to="/"
-                  className="cursor-pointer text-gray-500 hover:text-gray-900"
-                >
-                  Request a Quote
-                </Link>
-              </li>
-            </nav>
+          <div className="flex flex-nowrap gap-x-8 border">
+            <div className="w-1/5 min-w-max">
+              <h2 className="title-font mb-4 text-sm font-medium uppercase tracking-widest text-gray-900">
+                Platform
+              </h2>
+              <nav className="list-none">
+                <li className="mt-3">
+                  <Link
+                    to="/"
+                    className="cursor-pointer text-gray-500 hover:text-gray-900"
+                  >
+                    Terms &amp; Privacy
+                  </Link>
+                </li>
+                <li className="mt-3">
+                  <Link
+                    to="/"
+                    className="cursor-pointer text-gray-500 hover:text-gray-900"
+                  >
+                    FAQ
+                  </Link>
+                </li>
+              </nav>
+            </div>
+            <div className="w-1/5 min-w-max">
+              <h2 className="title-font mb-4 text-sm font-medium uppercase tracking-widest text-gray-900">
+                Contact
+              </h2>
+              <nav className="list-none">
+                <li className="mt-3">
+                  <Link
+                    to="/"
+                    className="cursor-pointer text-gray-500 hover:text-gray-900"
+                  >
+                    Send a Message
+                  </Link>
+                </li>
+                <li className="mt-3">
+                  <Link
+                    to="/"
+                    className="cursor-pointer text-gray-500 hover:text-gray-900"
+                  >
+                    Request a Quote
+                  </Link>
+                </li>
+              </nav>
+            </div>
           </div>
         </div>
       </div>

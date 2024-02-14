@@ -1,9 +1,9 @@
 import MenuButtons from "./MenuButtons";
-import Carrito from "./CartButton";
+import CartButton from "./CartButton";
 import Hamburguesa from "./Hamburguesa";
 import Logo from "./Logo";
 import React from "react";
-import "./Navbar.css"
+import "./Navbar.css";
 
 export default function NavBar() {
   const menu_options = [
@@ -20,12 +20,12 @@ export default function NavBar() {
       >
         <Hamburguesa />
         <Logo className="logo" />
-        <div className="flex h-full justify-center space-x-6 max-lg:hidden">
+        <div className="flex h-full w-1/2 items-center justify-between space-x-6 max-lg:hidden">
           {menu_options.map((m) => (
             <MenuButtons key={m.title} menuOption={m} />
           ))}
         </div>
-        <Carrito className="carrito" />
+        <CartButton className="carrito" />
       </nav>
     </header>
   );

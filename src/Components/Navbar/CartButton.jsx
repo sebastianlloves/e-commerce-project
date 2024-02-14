@@ -2,7 +2,7 @@ import React from "react";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { useSelector } from "react-redux";
 import { selectCartItems } from "../../features/cart/cartSlice";
-import { Link } from "react-router-dom";
+import ViewTransitionLink from "../../routes/ViewTransitionLink";
 
 function Carrito() {
   const cartItems = useSelector(selectCartItems);
@@ -12,10 +12,10 @@ function Carrito() {
   );
 
   return (
-    <div className="flow-root w-[4em] duration-300 hover:scale-105 hover:text-slate-50">
-      <Link to="/cart" className="group mx-2 flex items-center p-2">
+    <ViewTransitionLink to="/cart" className="group h-full p-2">
+      <div className="flex h-full w-[4em] flex-nowrap items-center justify-center duration-300 hover:scale-105 hover:text-slate-50">
         <ShoppingBagIcon
-          className="group- h-6 flex-shrink-0"
+          className="group h-6 flex-shrink-0"
           aria-hidden="true"
         />
         <span
@@ -25,8 +25,8 @@ function Carrito() {
         >
           {countItems}
         </span>
-      </Link>
-    </div>
+      </div>
+    </ViewTransitionLink>
   );
 }
 
