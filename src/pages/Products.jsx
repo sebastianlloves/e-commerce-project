@@ -10,8 +10,6 @@ const Products = () => {
   const dispatch = useDispatch();
   const category = useParams().category;
 
-  window.scrollTo(0, 0);
-
   useEffect(() => {
     if (!loading && products.length === 0) {
       dispatch(getProductsThunk());

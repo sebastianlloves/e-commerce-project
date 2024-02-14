@@ -6,10 +6,32 @@ import Cart from "../pages/Cart";
 import WithNavbar from "./layout/WithNavbar";
 import AddArticle from '../pages/AddArticle'
 import ScrollToTop from "./ScrollToTop";
+/* 
+import { flushSync } from "react-dom";
+import { useNavigate } from "react-router-dom";
 
-const Navigation = () => {
+const ViewBack = ()=>{
+  const navigate = useNavigate();
+  flushSync(() => {
+    window.addEventListener("popstate", ({ target }) => {
+      if (document.startViewTransition) {
+        document.startViewTransition(() => navigate(target.location.pathname));
+      } else {
+        navigate(target.location.pathname);
+      }
+    });
+  });
+
+  return null
+} */
+
+
+const Navigation = () => {  
+  
+
   return (
     <Router>
+      {/* <ViewBack /> */}
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<WithNavbar />}>
