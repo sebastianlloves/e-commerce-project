@@ -51,7 +51,7 @@ const ProductDetail = () => {
         <div className="mx-auto overflow-hidden rounded-lg bg-white p-6 shadow-sm shadow-gray-200">
           <img
             src={imagesURL[0]}
-            className="m-auto h-full object-cover object-center"
+            className="img-product m-auto h-full object-cover object-center"
             style={{ viewTransitionName: `img-product-${id}` }}
           />
         </div>

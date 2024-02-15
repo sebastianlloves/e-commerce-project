@@ -23,6 +23,49 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
-::view-transition-old(root), ::view-transition-new(root){
-  animation-duration: 200ms;
+::view-transition-group(root){
+  animation-duration: 300ms;
+}/* 
+::view-transition-old(card){
+  animation-name: apareciendoLento;
 }
+::view-transition-new(card){
+  animation-name: saliendoRapido;
+}
+
+::view-transition-group(img-product){
+  animation-name: degradadoRapido;
+}
+
+@keyframes apareciendoLento {
+  0%{
+    opacity: 0;
+  }
+  90%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes saliendoRapido {
+  0%{
+    opacity: 1;
+  }
+  10%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+@keyframes prueba {
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 1;
+  }
+} */

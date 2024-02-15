@@ -4,6 +4,7 @@ import { selectCartItems, deleteItem } from "../../features/cart/cartSlice";
 import { Link } from "react-router-dom";
 import CountSelector from "./CountSelector";
 import { TrashIcon } from "@heroicons/react/24/outline";
+import ViewTransitionLink from "../../routes/ViewTransitionLink";
 
 const CartList = () => {
   const cartItems = useSelector(selectCartItems);
@@ -27,15 +28,15 @@ const CartList = () => {
               key={`${id}-${colorSelected}-${sizeSelected}`}
               className="flex items-center py-6"
             >
-              <Link
-                to={`../product/${id}`}
-                className="flex h-24 w-24 flex-shrink-0 items-center justify-center overflow-hidden rounded-md border-transparent p-2 shadow-md shadow-stone-300"
-              >
-                <img
-                  src={imagesURL[0]}
-                  className="max-h-full max-w-full object-cover object-center"
-                />
-              </Link>
+              <ViewTransitionLink to={`../product/${id}`}>
+                <div className="flex h-24 w-24 flex-shrink-0 items-center justify-center overflow-hidden rounded-md border-transparent p-2 shadow-md shadow-stone-300">
+                  <img
+                    src={imagesURL[0]}
+                    className="img-product max-h-full max-w-full object-cover object-center"
+                    style={{ viewTransitionName: `img-product-${id}` }}
+                  />
+                </div>
+              </ViewTransitionLink>
 
               <div className="ml-4 flex flex-1 flex-col">
                 <div>
@@ -77,7 +78,7 @@ const CartList = () => {
       <div className="mt-8 border-t border-gray-400 px-4 py-8 sm:px-6">
         <div className="flex justify-between text-lg font-medium text-gray-900">
           <p>Subtotal</p>
-          <p className="w-1/5 text-xl text-center font-bold">
+          <p className="w-1/5 text-center text-xl font-bold">
             U$D{" "}
             {cartItems
               .reduce(

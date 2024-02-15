@@ -4,7 +4,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="body-font relative w-full mt-14 bg-gray-100 text-gray-700">
+    <footer className="body-font relative mt-14 w-full bg-gray-100 text-gray-700">
       <div className="custom-shape-divider-bottom-1707417843">
         <svg
           data-name="Layer 1"
@@ -96,8 +96,8 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex w-5/6 flex-wrap justify-center gap-x-8 text-center lg:w-4/6">
-          <div className="flex flex-0 flex-nowrap gap-x-8 border">
-            <div className="mb-4 w-1/5 ">
+          <div className="flex-0 mb-6 flex flex-nowrap justify-around w-full md:w-auto gap-x-8 md:justify-center ">
+            <div className="w-fit">
               <h2 className="title-font mb-4 text-sm font-medium uppercase tracking-widest text-gray-900">
                 About
               </h2>
@@ -120,7 +120,7 @@ const Footer = () => {
                 </li>
               </nav>
             </div>
-            <div className="w-1/5 min-w-max">
+            <div className="w-fit">
               <h2 className="title-font mb-4 text-sm font-medium uppercase tracking-widest text-gray-900">
                 Support
               </h2>
@@ -144,8 +144,8 @@ const Footer = () => {
               </nav>
             </div>
           </div>
-          <div className="flex flex-nowrap gap-x-8 border">
-            <div className="w-1/5 min-w-max">
+          <div className="flex-0 mb-6 flex flex-nowrap justify-around w-full md:w-auto gap-x-8 md:justify-center ">
+            <div className="w-fit">
               <h2 className="title-font mb-4 text-sm font-medium uppercase tracking-widest text-gray-900">
                 Platform
               </h2>
@@ -168,7 +168,7 @@ const Footer = () => {
                 </li>
               </nav>
             </div>
-            <div className="w-1/5 min-w-max">
+            <div className="w-fit">
               <h2 className="title-font mb-4 text-sm font-medium uppercase tracking-widest text-gray-900">
                 Contact
               </h2>
