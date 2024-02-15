@@ -21,6 +21,10 @@ const ProductDetail = () => {
     if (product) setColorSelected(product.colors[0].name);
   }, [product]);
 
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
+
   const [colorSelected, setColorSelected] = useState(null);
   const [sizeSelected, setSizeSelected] = useState(null);
   const [countSelected, setCountSelected] = useState(undefined);
