@@ -24,6 +24,36 @@
   }
 }
 
+@keyframes toggle_sidebar_hamburger {
+  0% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  50% {
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes toggle_sidebar_xmark {
+  0% {
+    opacity: 0;
+    /* transform: rotate(0deg); */
+  }
+  50% {
+    opacity: 0;
+    /* transform: rotate(0deg); */
+  }
+  100% {
+    opacity: 1;
+    /* transform: rotate(-90deg); */
+  }
+}
+
 .scroll-navbar {
   animation: navbar_bg linear both;
   animation-timeline: scroll(root block);
@@ -36,8 +66,19 @@
   }
 }
 
-.logo, .hamburguesa, .logo:hover, .hamburguesa:hover {
+.logo,
+.hamburguesa,
+.logo:hover,
+.hamburguesa:hover {
   animation: nav_logo linear both;
   animation-timeline: scroll(root block);
   animation-range: 0 140px;
+}
+
+.hamburger-icon{
+  animation: 1.5s ease-in 1 both toggle_sidebar_hamburger;
+}
+
+.x-icon{
+  animation: 1.5s ease-in 1 both toggle_sidebar_xmark;
 }

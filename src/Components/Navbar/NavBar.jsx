@@ -14,7 +14,7 @@ export default function NavBar() {
 
   return (
     <header
-      className="scroll-navbar sticky top-0 z-10 flex h-16 w-full justify-center bg-azure-950/95 py-1 font-navbar text-base font-medium text-slate-300 shadow-[0_7px_9px_-3px_rgba(36,46,71,0.3)] backdrop-blur"
+      className="scroll-navbar fixed top-0 z-10 flex h-16 w-full justify-center bg-azure-950/95 py-1 font-navbar text-base font-medium text-slate-300 shadow-[0_7px_9px_-3px_rgba(36,46,71,0.3)] backdrop-blur"
       style={{ viewTransitionName: "navbar" }}
     >
       <nav
