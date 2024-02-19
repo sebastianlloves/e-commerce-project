@@ -1,0 +1,7 @@
+.count-selector {
+background: rgb(255,255,255);
+background: -moz-radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(242,242,246,1) 98%);
+background: -webkit-radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(242,242,246,1) 98%);
+background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(242,242,246,1) 98%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#f2f2f6",GradientType=1);
+}

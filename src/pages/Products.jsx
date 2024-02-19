@@ -14,9 +14,6 @@ const Products = () => {
     if (!loading && products.length === 0) {
       dispatch(getProductsThunk());
     }
-    console.log(window.navigation)
-    console.log(location);
-    console.log(document.referrer);
     const selectCardNode = document.querySelector(`#prod-${sessionStorage.getItem("scrollProduct")}`)
     if(selectCardNode)selectCardNode.scrollIntoView({ block: "center" });
   }, []);

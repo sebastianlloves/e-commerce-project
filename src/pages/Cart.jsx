@@ -9,7 +9,7 @@ function Cart() {
 
   return (
     <div className="min-h-screen w-full">
-      <div className="mx-auto flex w-3/4 max-w-screen-lg flex-col">
+      <div className="mx-auto flex max-w-screen-lg flex-col px-4 md:px-10">
         <h2 className="mb-20 mt-24 text-center text-3xl font-semibold uppercase text-slate-800">
           Carrito
         </h2>
