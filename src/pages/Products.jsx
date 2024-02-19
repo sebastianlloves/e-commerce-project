@@ -14,10 +14,11 @@ const Products = () => {
     if (!loading && products.length === 0) {
       dispatch(getProductsThunk());
     }
-    const selectCardNode = document.querySelector(`#prod-${sessionStorage.getItem("scrollProduct")}`)
-    if(selectCardNode)selectCardNode.scrollIntoView({ block: "center" });
+    const selectCardNode = document.querySelector(
+      `#prod-${sessionStorage.getItem("scrollProduct")}`
+    );
+    if (selectCardNode) selectCardNode.scrollIntoView({ block: "center" });
   }, []);
-  
 
   if (!loading && error)
     return (
@@ -34,13 +35,16 @@ const Products = () => {
   });
 
   return (
-    <div className="mx-auto flex h-full min-h-screen max-w-2xl items-start px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <div className="mx-auto flex h-full min-h-screen max-w-2xl flex-col items-center justify-start gap-y-10 px-8 py-16 sm:px-6 sm:py-24 lg:max-w-7xl">
+      <h1 className="my-10 inline bg-gradient-to-tr from-azure-900 to-indigo-800/90 bg-clip-text text-center text-5xl font-black tracking-tighter text-transparent drop-shadow-[1px_1px_3px_rgba(61,84,144,0.67)] sm:text-7xl lg:text-8xl">
+        YOUR BRAND
+      </h1>
       {loading && (
         <div className="m-auto">
           <Spinner />
         </div>
       )}
-      <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4  xl:gap-x-8">
+      <div className="mt-16 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:mt-24 lg:grid-cols-4 xl:gap-x-8">
         {filteredProducts.map((product) => (
           <Card key={product.id} product={product} />
         ))}

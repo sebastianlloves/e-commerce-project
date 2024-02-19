@@ -70,7 +70,7 @@ const ProductDetail = () => {
         >
           {name}
         </h1>
-        <p className="text-base text-gray-800">{description}</p>
+        <p className="text-base text-gray-800 text-pretty">{description}</p>
       </div>
 
       {/* Selección */}

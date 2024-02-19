@@ -10,8 +10,8 @@ function Cart() {
   return (
     <div className="min-h-screen w-full">
       <div className="mx-auto flex max-w-screen-lg flex-col px-4 md:px-10">
-        <h2 className="mb-20 mt-24 text-center text-3xl font-semibold uppercase text-slate-800">
-          Carrito
+        <h2 className="mb-20 mt-28 bg-gradient-to-r from-azure-950 to-indigo-800/90 bg-clip-text text-center text-5xl font-bold uppercase text-transparent drop-shadow-[1px_1px_2px_rgba(61,84,144,0.67)]">
+          CARRITO
         </h2>
 
         {cartItems.length > 0 ? <CartList /> : <EmptyCart />}
