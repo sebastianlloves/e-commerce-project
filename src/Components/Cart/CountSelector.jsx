@@ -2,17 +2,17 @@ import { React } from "react";
 import { useDispatch } from "react-redux";
 import { addOneCount, reduceOneCount } from "../../features/cart/cartSlice";
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/solid";
-import "./CountSelector.css"
+import "./CountSelector.css";
 
 function CountSelector({ itemData: { idCartItem, countSelected } }) {
   const dispatch = useDispatch();
   const classButtons =
-    "m-auto text-slate-700 hover:font-extrabold hover:text-slate-900 group-disabled:text-slate-300 duration-200";
+    "m-auto text-slate-500 font-extrabold hover:font-extrabold hover:text-slate-900 group-disabled:text-slate-300 duration-200";
 
   return (
-    <div className="flex justify-around count-selector max-w-[8rem] items-center rounded-md border-[1px] border-gray-200 p-2 shadow-sm">
+    <div className="count-selector flex max-w-[9rem] items-center justify-around rounded-md border-[1px] border-gray-200 p-2 shadow-sm ">
       <button
-        className="group w-[2rem] px-2"
+        className="group w-[2.5rem] px-2"
         disabled={countSelected === 1}
         onClick={() => dispatch(reduceOneCount(idCartItem))}
       >
@@ -22,7 +22,7 @@ function CountSelector({ itemData: { idCartItem, countSelected } }) {
         {countSelected}
       </div>
       <button
-        className="group w-[2rem] px-2"
+        className="group w-[2.5rem] px-2"
         onClick={() => dispatch(addOneCount(idCartItem))}
       >
         <PlusIcon className={classButtons} />
