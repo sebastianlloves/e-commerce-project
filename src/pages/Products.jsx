@@ -20,7 +20,7 @@ const Products = () => {
     if (selectCardNode) selectCardNode.scrollIntoView({ block: "center" });
   }, []);
 
-  if (!loading && error)
+  if (!loading && error) {
     return (
       <div className="flex h-[80vh] w-full items-center justify-center">
         <h1 className="text-center text-4xl font-bold text-gray-950">
@@ -28,15 +28,15 @@ const Products = () => {
         </h1>
       </div>
     );
+  }
 
-  const filteredProducts = products.filter((p) => {
-    if (category) return p.category === category;
-    return true;
-  });
+  const filteredProducts = category
+    ? products.filter((p) => p.category === category)
+    : products;
 
   return (
     <div className="mx-auto flex h-full min-h-screen max-w-2xl flex-col items-center justify-start gap-y-10 px-8 py-16 sm:px-6 sm:py-24 lg:max-w-7xl">
-      <h1 className="my-8 inline bg-gradient-to-tr from-[#000428] to-indigo-800/90 bg-clip-text text-center text-5xl font-black tracking-tighter text-transparent drop-shadow-[1px_1px_3px_#000428] sm:text-7xl lg:text-8xl">
+      <h1 className="my-8 inline bg-gradient-to-tr from-[#000428] to-indigo-800/90 bg-clip-text text-center text-6xl font-black tracking-tighter text-transparent drop-shadow-[1px_1px_3px_#000428] sm:text-7xl lg:text-8xl">
         YOUR BRAND
       </h1>
       {loading && (

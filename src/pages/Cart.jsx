@@ -5,12 +5,11 @@ import CartList from "../Components/Cart/CartList";
 
 function Cart() {
   const cartItems = useSelector(selectCartItems);
-  // console.log(cartItems);
 
   return (
-    <div className="min-h-screen w-full">
+    <div className="mt-20 min-h-screen w-full ">
       <div className="mx-auto flex max-w-screen-lg flex-col px-4 md:px-10">
-        <h2 className="mb-20 mt-36 bg-gradient-to-r from-azure-950 to-indigo-900/90 bg-clip-text text-center text-5xl font-bold uppercase text-transparent drop-shadow-[0.5px_1px_2px_rgba(61,84,144,0.67)]">
+        <h2 className="mb-20 bg-gradient-to-r from-azure-950 to-indigo-900/90 bg-clip-text text-center text-5xl font-bold uppercase text-transparent drop-shadow-[0.5px_1px_2px_rgba(61,84,144,0.67)]">
           CARRITO
         </h2>
 

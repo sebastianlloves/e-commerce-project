@@ -1,13 +1,11 @@
 @keyframes navbar_bg {
-  0% {
-    z-index: 10;
-  }
   100% {
     background-color: rgb(222, 221, 238, 0.6);
     backdrop-filter: blur(15px);
     height: 50px;
-    color: #242e47;
+    color: #242e47dc;
     font-size: 0.9rem;
+    font-weight: 600;
   }
 }
 
@@ -24,35 +22,6 @@
   }
 }
 
-@keyframes toggle_sidebar_hamburger {
-  0% {
-    opacity: 1;
-    transform: rotate(0deg);
-  }
-  50% {
-    opacity: 0;
-    transform: rotate(180deg);
-  }
-  100% {
-    opacity: 0;
-    transform: rotate(180deg);
-  }
-}
-
-@keyframes toggle_sidebar_xmark {
-  0% {
-    opacity: 0;
-    /* transform: rotate(0deg); */
-  }
-  50% {
-    opacity: 0;
-    /* transform: rotate(0deg); */
-  }
-  100% {
-    opacity: 1;
-    /* transform: rotate(-90deg); */
-  }
-}
 
 .scroll-navbar {
   animation: navbar_bg linear both;
@@ -73,12 +42,4 @@
   animation: nav_logo linear both;
   animation-timeline: scroll(root block);
   animation-range: 0 140px;
-}
-
-.hamburger-icon{
-  animation: 1.5s ease-in 1 both toggle_sidebar_hamburger;
-}
-
-.x-icon{
-  animation: 1.5s ease-in 1 both toggle_sidebar_xmark;
 }

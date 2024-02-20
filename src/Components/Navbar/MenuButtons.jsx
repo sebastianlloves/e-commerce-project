@@ -1,14 +1,18 @@
 import React from "react";
 import ViewTransitionLink from "../../routes/ViewTransitionLink";
 
-function MenuButtons({ menuOption }) {
+function MenuButtons({ menuOption, handleClick }) {
   return (
-    <ViewTransitionLink
-      to={`/${menuOption.value}`}
-      className="group relative mx-4 flex w-40 items-center justify-center overflow-hidden px-4 transition-all duration-500 hover:text-slate-100"
+    <button
+      className="group relative flex w-40 items-center overflow-hidden px-4 transition-all duration-500"
+      onClick={handleClick}
     >
-      <h2 className="trackin">{menuOption.title}</h2>
-    </ViewTransitionLink>
+      <ViewTransitionLink to={`/${menuOption.value}`}>
+        <h4 className="transition-all duration-300 hover:text-slate-100">
+          {menuOption.title}
+        </h4>
+      </ViewTransitionLink>
+    </button>
   );
 }
 
