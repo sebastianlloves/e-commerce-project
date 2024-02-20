@@ -36,7 +36,7 @@ const Products = () => {
 
   return (
     <div className="mx-auto flex h-full min-h-screen max-w-2xl flex-col items-center justify-start gap-y-10 px-8 py-16 sm:px-6 sm:py-24 lg:max-w-7xl">
-      <h1 className="my-10 inline bg-gradient-to-tr from-azure-900 to-indigo-800/90 bg-clip-text text-center text-5xl font-black tracking-tighter text-transparent drop-shadow-[1px_1px_3px_rgba(61,84,144,0.67)] sm:text-7xl lg:text-8xl">
+      <h1 className="my-8 inline bg-gradient-to-tr from-[#000428] to-indigo-800/90 bg-clip-text text-center text-5xl font-black tracking-tighter text-transparent drop-shadow-[1px_1px_3px_#000428] sm:text-7xl lg:text-8xl">
         YOUR BRAND
       </h1>
       {loading && (
