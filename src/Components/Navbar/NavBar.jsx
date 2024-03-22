@@ -18,7 +18,7 @@ export default function NavBar() {
       className="scroll-navbar fixed top-0 z-10 flex h-16 w-full flex-col items-start justify-start bg-azure-950/95 font-navbar text-base font-medium text-slate-300 shadow-[0_7px_9px_-3px_rgba(36,46,71,0.3)] backdrop-blur lg:items-center"
       style={{ viewTransitionName: "navbar" }}
     >
-      <nav className="z-10 flex h-full w-full max-w-7xl items-center justify-between  px-8">
+      <nav className="z-10 flex h-full font-bold w-full max-w-7xl items-center justify-between  px-8">
         <MobileMenuToggle
           handleClick={() => setMobileToggleIsOpen(!mobileToggleisOpen)}
           isOpen={mobileToggleisOpen}

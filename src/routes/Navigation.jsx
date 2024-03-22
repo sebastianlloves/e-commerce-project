@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Products from "../pages/Products";
+import Home from "../pages/Home";
 import ProductDetail from "../pages/ProductDetail";
 import Cart from "../pages/Cart";
 import WithNavbar from "./layout/WithNavbar";
-import AddArticle from '../pages/AddArticle'
+// import AddArticle from '../pages/AddArticle'
 import ScrollToTop from "./ScrollToTop";
 /* 
 import { flushSync } from "react-dom";
@@ -35,14 +35,14 @@ const Navigation = () => {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<WithNavbar />}>
-          <Route index element={<Products />} />
-          <Route path="/:category" element={<Products className="vt" />} />
+          <Route index element={<Home />} />
+          <Route path="/:category" element={<Home className="vt" />} />
           <Route
             path="/product/:id"
             element={<ProductDetail className="vt" />}
           />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/addArticle" element={<AddArticle />} />
+          {/* <Route path="/addArticle" element={<AddArticle />} /> */}
         </Route>
       </Routes>
     </Router>

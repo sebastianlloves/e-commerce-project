@@ -1,17 +1,26 @@
-import Card from "../Components/Products/Card";
+import Card from "../Components/card/Card.jsx";
 import React, { useEffect } from "react";
-import { Spinner } from "../Components/Spinner.jsx";
-import { getProductsThunk } from "../features/products/productsSlice";
+import { Spinner } from "../Components/spinner/Spinner.jsx";
+import { getProductsThunk } from "../features/products/productsSlice.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import useData from "../hooks/useData.jsx";
 
-const Products = () => {
-  const { loading, error, products } = useSelector((state) => state.products);
+export default function Home() {
+  const { data: products, loading, error } = useData(
+    "https://mock-api-git-main-sebastianlloves-projects.vercel.app/prodcts"
+  );
+
+  console.log(products)
+  console.log(loading)
+  console.log(error)
+
+  // const { loading, error, products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   const category = useParams().category;
 
   useEffect(() => {
-    if (!loading && products.length === 0) {
+    if (!loading && products?.length === 0) {
       dispatch(getProductsThunk());
     }
     const selectCardNode = document.querySelector(
@@ -45,12 +54,10 @@ const Products = () => {
         </div>
       )}
       <div className="mt-16 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:mt-24 lg:grid-cols-4 xl:gap-x-8">
-        {filteredProducts.map((product) => (
+        {filteredProducts?.map((product) => (
           <Card key={product.id} product={product} />
         ))}
       </div>
     </div>
   );
-};
-
-export default Products;
+}

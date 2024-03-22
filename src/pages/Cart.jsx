@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectCartItems } from "../features/cart/cartSlice";
-import CartList from "../Components/Cart/CartList";
+import CartList from "../Components/cart/CartList";
 
 function Cart() {
   const cartItems = useSelector(selectCartItems);

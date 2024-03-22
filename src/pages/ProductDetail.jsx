@@ -1,10 +1,10 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ColorButton from "../Components/Products/ColorButton";
-import SizeButton from "../Components/Products/SizeButton";
-import CountSelection from "../Components/Products/CountSelection";
-import AddToCartButton from "../Components/Products/AddToCartButton";
-import { Spinner } from "../Components/Spinner";
+import ColorButton from "../Components/productDetails/ColorButton";
+import SizeButton from "../Components/productDetails/SizeButton";
+import CountSelection from "../Components/productDetails/CountSelection";
+import AddToCartButton from "../Components/productDetails/AddToCartButton";
+import { Spinner } from "../Components/spinner/Spinner";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductsThunk } from "../features/products/productsSlice";
 
@@ -70,7 +70,7 @@ const ProductDetail = () => {
         >
           {name}
         </h1>
-        <p className="text-base text-gray-800 text-pretty">{description}</p>
+        <p className="text-pretty text-base text-gray-800">{description}</p>
       </div>
 
       {/* Selección */}
