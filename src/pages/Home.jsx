@@ -8,7 +8,7 @@ import useData from "../hooks/useData.jsx";
 
 export default function Home() {
   const { data: products, loading, error } = useData(
-    "https://mock-api-git-main-sebastianlloves-projects.vercel.app/prodcts"
+    "https://mock-api-git-main-sebastianlloves-projects.vercel.app/products"
   );
 
   console.log(products)
@@ -40,7 +40,7 @@ export default function Home() {
   }
 
   const filteredProducts = category
-    ? products.filter((p) => p.category === category)
+    ? products?.filter((p) => p.category === category)
     : products;
 
   return (
