@@ -2,7 +2,7 @@ import Card from "../Components/card/Card.jsx";
 import React, { useEffect } from "react";
 import { Spinner } from "../Components/spinner/Spinner.jsx";
 import { getProductsThunk } from "../features/products/productsSlice.jsx";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import useData from "../hooks/useData.jsx";
 
