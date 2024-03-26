@@ -1,0 +1,1 @@
+export const URL_API_PRODUCTS = "https://mock-api-git-main-sebastianlloves-projects.vercel.app/products"

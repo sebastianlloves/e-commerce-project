@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { filterProductsByCategory } from "../utils/filterProductsByCategory";
 
-export default function useData(url) {
+export default function useData(url, category) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -9,10 +10,13 @@ export default function useData(url) {
     setLoading(true)
     fetch(url)
       .then((response) => {
-        // if(!response.ok) throw new Error('Error de conexión')
+        if(!response.ok) throw new Error('Error de conexión')
         return response.json();
       })
-      .then((json) => setData(json))
+      .then((json) => {
+        const filteredProducts = filterProductsByCategory(json, category)
+        setData(filteredProducts)
+      })
       .catch(error => setError(error))
       .finally(()=> setLoading(false))
   }, []);
