@@ -1,5 +1,4 @@
 import Card from "../Components/card/Card.jsx";
-import React from "react";
 import { Spinner } from "../Components/spinner/Spinner.jsx";
 import { useParams } from "react-router-dom";
 import useData from "../hooks/useData.jsx";
@@ -7,14 +6,12 @@ import { URL_API_PRODUCTS } from "../constants.js";
 
 export default function Home() {
   const category = useParams().category;
-  const { data: products, loading, error } = useData(URL_API_PRODUCTS);
-
-  console.log(products);
-  console.log(loading);
-  console.log(error);
-  console.log(category)
-
-  
+  console.log(URL_API_PRODUCTS);
+  const {
+    data: products,
+    loading,
+    error,
+  } = useData(URL_API_PRODUCTS, category);
 
   return (
     <div className="mx-auto flex h-full min-h-screen max-w-2xl flex-col items-center justify-start gap-y-10 px-8 py-16 sm:px-6 sm:py-24 lg:max-w-7xl">
