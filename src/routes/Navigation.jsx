@@ -1,7 +1,6 @@
-import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
-import ProductDetail from "../pages/ProductDetail";
+import ProductDetailsPage from "../pages/ProductDetailsPage";
 import Cart from "../pages/Cart";
 import WithNavbar from "./layout/WithNavbar";
 // import AddArticle from '../pages/AddArticle'
@@ -39,7 +38,7 @@ const Navigation = () => {
           <Route path="/:category" element={<Home className="vt" />} />
           <Route
             path="/product/:id"
-            element={<ProductDetail className="vt" />}
+            element={<ProductDetailsPage className="vt" />}
           />
           <Route path="/cart" element={<Cart />} />
           {/* <Route path="/addArticle" element={<AddArticle />} /> */}

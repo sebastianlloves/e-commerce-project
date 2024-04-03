@@ -1,0 +1,1 @@
+// Traer acá los estados de selección del producto, y las acciones para mandar al carrito. Pensar si los estados se pueden pasar a un custom hook.

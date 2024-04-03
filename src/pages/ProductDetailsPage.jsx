@@ -1,24 +1,28 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ColorButton from "../Components/productDetails/ColorButton";
-import SizeButton from "../Components/productDetails/SizeButton";
-import CountSelection from "../Components/productDetails/CountSelection";
-import AddToCartButton from "../Components/productDetails/AddToCartButton";
-import { Spinner } from "../Components/spinner/Spinner";
-import { useDispatch, useSelector } from "react-redux";
-import { getProductsThunk } from "../features/products/productsSlice";
+import ColorButton from "../components/productDetails/ColorButton.jsx";
+import SizeButton from "../components/productDetails/SizeButton.jsx";
+import CountSelection from "../components/productDetails/CountSelection.jsx";
+import AddToCartButton from "../components/productDetails/AddToCartButton.jsx";
+import { Spinner } from "../components/spinner/Spinner.jsx";
+import { useDispatch } from "react-redux";
+import { getProductsThunk } from "../features/products/productsSlice.jsx";
+import { useProducts } from "../hooks/useProducts.js";
+import { URL_API_PRODUCTS } from "../constants.js";
 
 const ProductDetail = () => {
   const id = Number(useParams().id);
-  const { loading, error, products } = useSelector((state) => state.products);
+  const { products, loading, error } = useProducts(URL_API_PRODUCTS)
+  console.log(products)
+  // const { loading, error, products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
-  const product = products.find((p) => p.id === id);
+  const product = products?.find((p) => p.id === id);
 
   useEffect(() => {
-    if (!loading && products.length === 0) {
+    if (!loading && products?.length === 0) {
       dispatch(getProductsThunk());
     }
-    if (product) setColorSelected(product.colors[0].name);
+    if (product) setColorSelected(product?.colors[0].name);
   }, [product]);
 
   // useEffect(() => {

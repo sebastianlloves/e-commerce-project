@@ -1,4 +1,3 @@
-import React from "react";
 import "./Card.css";
 import ViewTransitionLink from "../../routes/ViewTransitionLink";
 
