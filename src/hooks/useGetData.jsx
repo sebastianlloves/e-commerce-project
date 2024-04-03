@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { filterProductsByCategory } from "../utils/filterProductsByCategory";
+import { fetchData } from "../services/fetchData";
 
 export default function useData(url, productsCategory) {
   const [data, setData] = useState(null);
@@ -7,20 +8,20 @@ export default function useData(url, productsCategory) {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    setError(false)
-    setLoading(true)
-    console.log('Haciendo fetching datos')
-    fetch(url)
-      .then((response) => {
-        if(!response.ok) throw new Error('Error de conexión')
-        return response.json();
-      })
+    setError(false);
+    setLoading(true);
+    console.log("Haciendo fetching datos");
+    fetchData(url)
       .then((json) => {
-        const filteredProducts = filterProductsByCategory(json, productsCategory)
-        setData(filteredProducts)
+        const filteredProducts = filterProductsByCategory(
+          json,
+          productsCategory
+        );
+        console.log(filteredProducts)
+        setData(filteredProducts);
       })
-      .catch(error => setError(error))
-      .finally(()=> setLoading(false))
+      .catch((error) => setError(error))
+      .finally(() => setLoading(false));
   }, [productsCategory]);
 
   return { data, loading, error };
