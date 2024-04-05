@@ -1,5 +1,3 @@
-// Traer acá los estados de selección del producto, y las acciones para mandar al carrito. Pensar si los estados se pueden pasar a un custom hook.
-
 import { useState } from "react";
 import ColorSelection from "./ColorSelection";
 import SizeSelection from "./SizeSelection";
@@ -7,12 +5,13 @@ import QuantitySelection from "./QuantitySelection";
 import AddToCartButton from "./AddToCartButton";
 
 function ProductDetails({ product }) {
+  const { colors, name, imagesURL, description, price, id } = product;
   const [userSelection, setUserSelection] = useState({
-    color: null,
+    color: colors[0],
     size: null,
     quantity: null,
   });
-  const { colors, name, imagesURL, description, price, id } = product;
+  console.log(userSelection)
 
   return (
     <div className="mx-auto grid h-min min-h-screen max-w-screen-md grid-cols-1 gap-x-16 p-12 lg:max-w-screen-xl lg:grid-cols-2">
@@ -47,9 +46,13 @@ function ProductDetails({ product }) {
         >{`U$D ${price}`}</p>
 
         <div className="mt-20 space-y-10 lg:space-y-20">
-          <ColorSelection />
-          <SizeSelection />          
-          <QuantitySelection />
+          <ColorSelection
+            userSelection={userSelection}
+            setUserSelection={setUserSelection}
+            colors={colors}
+          />
+          <SizeSelection props={{ userSelection, setUserSelection }} />
+          <QuantitySelection props={{ userSelection, setUserSelection }} />
 
           {/* <AddToCartButton
             selection={{
