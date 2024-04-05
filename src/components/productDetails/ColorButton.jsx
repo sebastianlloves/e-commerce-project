@@ -1,4 +1,3 @@
-import React from "react";
 
 const ColorButton = ({ color, colorSelected, handleClick }) => {
   const colorClasses = {

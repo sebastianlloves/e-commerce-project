@@ -1,4 +1,3 @@
-import React from 'react'
 
 const SizeButton = ({ size, sizeSelected, handleClick }) => {
  return (

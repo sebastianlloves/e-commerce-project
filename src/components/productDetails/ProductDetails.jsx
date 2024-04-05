@@ -11,7 +11,7 @@ function ProductDetails({ product }) {
     size: null,
     quantity: null,
   });
-  console.log(userSelection)
+  console.log(userSelection);
 
   return (
     <div className="mx-auto grid h-min min-h-screen max-w-screen-md grid-cols-1 gap-x-16 p-12 lg:max-w-screen-xl lg:grid-cols-2">
@@ -51,7 +51,10 @@ function ProductDetails({ product }) {
             setUserSelection={setUserSelection}
             colors={colors}
           />
-          <SizeSelection props={{ userSelection, setUserSelection }} />
+          <SizeSelection
+            userSelection={userSelection}
+            setUserSelection={setUserSelection}
+          />
           <QuantitySelection props={{ userSelection, setUserSelection }} />
 
           {/* <AddToCartButton

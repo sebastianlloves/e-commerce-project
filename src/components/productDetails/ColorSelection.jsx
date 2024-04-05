@@ -1,5 +1,5 @@
 import { COLOR_CLASSES } from "../../constants";
-import { getButtonClasses } from "../../utils/getButtonClasses";
+import { getColorButtonClasses } from "../../utils/getButtonClasses";
 
 function ColorSelection({ userSelection, setUserSelection, colors }) {
   const createHandleClick = (color) => () =>
@@ -14,7 +14,7 @@ function ColorSelection({ userSelection, setUserSelection, colors }) {
         {colors?.map((color) => (
           <button
             key={color.name}
-            className={getButtonClasses(
+            className={getColorButtonClasses(
               COLOR_CLASSES,
               color,
               userSelection.color
