@@ -9,7 +9,7 @@ function ProductDetails({ product }) {
   const [userSelection, setUserSelection] = useState({
     color: colors[0],
     size: null,
-    quantity: null,
+    quantity: 1,
   });
   console.log(userSelection);
 
@@ -55,7 +55,10 @@ function ProductDetails({ product }) {
             userSelection={userSelection}
             setUserSelection={setUserSelection}
           />
-          <QuantitySelection props={{ userSelection, setUserSelection }} />
+          <QuantitySelection
+            userSelection={userSelection}
+            setUserSelection={setUserSelection}
+          />
 
           {/* <AddToCartButton
             selection={{

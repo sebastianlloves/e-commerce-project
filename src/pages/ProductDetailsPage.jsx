@@ -14,7 +14,6 @@ import ProductDetails from "../components/productDetails/ProductDetails.jsx";
 const ProductDetail = () => {
   const id = Number(useParams().id);
   const { products, loading, error } = useProducts(URL_API_PRODUCTS);
-  console.log(products);
   // const { loading, error, products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   const product = products?.find((p) => p.id === id);

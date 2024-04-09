@@ -1,7 +1,7 @@
 @keyframes navbar_bg {
   100% {
-    background-color: rgb(222, 221, 238, 0.6);
-    backdrop-filter: blur(10px);
+    background-color: rgba(235, 234, 245, 0.6);
+    backdrop-filter: blur(15px);
     height: 50px;
     color: #242e47dc;
     font-size: 0.9rem;

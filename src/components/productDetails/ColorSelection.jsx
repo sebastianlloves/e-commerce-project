@@ -1,14 +1,15 @@
 import { COLOR_CLASSES } from "../../constants";
 import { getColorButtonClasses } from "../../utils/getButtonClasses";
+import { getNewStateColorChanging } from "../../utils/getNewStateUserSelection";
 
 function ColorSelection({ userSelection, setUserSelection, colors }) {
   const createHandleClick = (color) => () =>
-    setUserSelection({ ...userSelection, color });
+    setUserSelection(getNewStateColorChanging(color, userSelection));
 
   return (
     <>
       <h3 className="text-base font-semibold text-gray-900">
-        Color: <span className=" font-normal">{userSelection?.color.name}</span>
+        Color: <span className=" font-normal">{userSelection?.color?.name}</span>
       </h3>
       <div className="my-4 flex">
         {colors?.map((color) => (
