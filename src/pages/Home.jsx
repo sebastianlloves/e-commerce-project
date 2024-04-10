@@ -2,8 +2,8 @@ import { Spinner } from "../components/spinner/Spinner.jsx";
 import { useParams } from "react-router-dom";
 import { useProducts } from "../hooks/useProducts.js";
 import { URL_API_PRODUCTS } from "../constants.js";
-import NoProducts from "../Components/noProducts/NoProducts.jsx";
-import CardsList from "../Components/cards/CardsList.jsx";
+import NoProducts from "../components/noProducts/NoProducts.jsx";
+import CardsList from "../components/cards/CardsList.jsx";
 import { useFilteredProducts } from "../hooks/useFilteredProducts.js";
 
 export default function Home() {

@@ -1,5 +1,3 @@
-
-
 export default function NoProducts({onlyOneProduct}) {
   const text = onlyOneProduct
     ? "No se ha podido cargar el producto seleccionado"

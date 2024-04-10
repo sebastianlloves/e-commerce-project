@@ -1,4 +1,3 @@
-import React from "react";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { useSelector } from "react-redux";
 import { selectCartItems } from "../../features/cart/cartSlice";

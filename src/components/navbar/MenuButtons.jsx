@@ -1,4 +1,3 @@
-import React from "react";
 import ViewTransitionLink from "../../routes/ViewTransitionLink";
 
 function MenuButtons({ menuOption, handleClick }) {
