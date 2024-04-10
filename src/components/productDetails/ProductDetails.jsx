@@ -7,11 +7,10 @@ import AddToCartButton from "./AddToCartButton";
 function ProductDetails({ product }) {
   const { colors, name, imagesURL, description, price, id } = product;
   const [userSelection, setUserSelection] = useState({
-    color: colors[0],
-    size: null,
-    quantity: 1,
+    colorSelected: colors[0],
+    sizeSelected: undefined,
+    countSelected: undefined,
   });
-  console.log(userSelection);
 
   return (
     <div className="mx-auto grid h-min min-h-screen max-w-screen-md grid-cols-1 gap-x-16 p-12 lg:max-w-screen-xl lg:grid-cols-2">
@@ -21,7 +20,9 @@ function ProductDetails({ product }) {
           <img
             src={imagesURL[0]}
             className="img-product m-auto h-full object-cover object-center"
-            style={{ viewTransitionName: `img-product-${id}` }}
+            style={{
+              viewTransitionName: `img-product-${id}-color${userSelection.colorSelected.name}-size${userSelection.sizeSelected}`,
+            }}
           />
         </div>
       </div>
@@ -29,21 +30,15 @@ function ProductDetails({ product }) {
       {/* Descripción */}
       <div className="flex flex-col justify-stretch p-8 lg:order-3 lg:p-12">
         <h3 className="sr-only">Description</h3>
-        <h1
-          className="my-6 text-center text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl"
-          // style={{ viewTransitionName: `title-product-${id}` }}
-        >
+        <h1 className="my-6 text-center text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
           {name}
         </h1>
         <p className="text-pretty text-base text-gray-800">{description}</p>
       </div>
 
       {/* Selección */}
-      <div className="h-min justify-self-start py-12 lg:row-span-3 lg:px-20">
-        <p
-          className="text-3xl tracking-tight text-gray-900"
-          // style={{ viewTransitionName: `price-product-${id}` }}
-        >{`U$D ${price}`}</p>
+      <div className="h-min w-full justify-self-start py-12 lg:row-span-3 lg:px-20">
+        <p className="text-3xl tracking-tight text-gray-900">{`U$D ${price}`}</p>
 
         <div className="mt-20 space-y-10 lg:space-y-20">
           <ColorSelection
@@ -60,15 +55,13 @@ function ProductDetails({ product }) {
             setUserSelection={setUserSelection}
           />
 
-          {/* <AddToCartButton
+          <AddToCartButton
             selection={{
               id,
-              colorSelected,
-              sizeSelected,
-              countSelected,
+              ...userSelection,
               ...product,
             }}
-          /> */}
+          />
         </div>
       </div>
     </div>

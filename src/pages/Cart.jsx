@@ -1,7 +1,7 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { selectCartItems } from "../features/cart/cartSlice";
-import CartList from "../Components/cart/CartList";
+import CartList from "../components/cart/CartList";
+import EmptyCart from "../components/cart/EmptyCart";
 
 function Cart() {
   const cartItems = useSelector(selectCartItems);
@@ -12,18 +12,10 @@ function Cart() {
         <h2 className="mb-20 bg-gradient-to-r from-azure-950 to-indigo-900/90 bg-clip-text text-center text-5xl font-bold uppercase text-transparent drop-shadow-[0.5px_1px_2px_rgba(61,84,144,0.67)]">
           CARRITO
         </h2>
-
+        
         {cartItems.length > 0 ? <CartList /> : <EmptyCart />}
       </div>
     </div>
-  );
-}
-
-function EmptyCart() {
-  return (
-    <h2 className="my-20 text-center text-lg font-semibold text-slate-800">
-      Tu carrito todavía está vacío
-    </h2>
   );
 }
 

@@ -1,4 +1,3 @@
-import { React } from "react";
 import { useDispatch } from "react-redux";
 import { addOneCount, reduceOneCount } from "../../features/cart/cartSlice";
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/solid";

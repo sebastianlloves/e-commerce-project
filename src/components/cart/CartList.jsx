@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCartItems, deleteItem } from "../../features/cart/cartSlice";
 import CountSelector from "./CountSelector";
@@ -8,6 +7,7 @@ import ViewTransitionLink from "../../routes/ViewTransitionLink";
 const CartList = () => {
   const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
+  console.log(cartItems)
 
   return (
     <div>
@@ -33,7 +33,9 @@ const CartList = () => {
                     <img
                       src={imagesURL[0]}
                       className="img-product max-h-full max-w-full object-cover object-center"
-                      style={{ viewTransitionName: `img-product-${id}` }}
+                      style={{
+                        viewTransitionName: `img-product-${id}-color${colorSelected.name}-size${sizeSelected}`,
+                      }}
                     />
                   </div>
                 </ViewTransitionLink>
@@ -42,7 +44,7 @@ const CartList = () => {
                     <h3 className="mb-1 line-clamp-1">{name}</h3>
                   </ViewTransitionLink>
                   <p className="mt-1 w-max text-sm font-normal text-gray-500">
-                    Color: {colorSelected}
+                    Color: {colorSelected.name}
                   </p>
                   <p className="mt-1 w-max text-sm font-normal text-gray-500">
                     Talle: {sizeSelected}

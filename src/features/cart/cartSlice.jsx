@@ -1,8 +1,13 @@
 import { createSlice, current, nanoid } from "@reduxjs/toolkit";
 
+const initialState = (() => {
+  const persistedCart = localStorage.getItem("__cart__store__");
+  return persistedCart ? JSON.parse(persistedCart) : [];
+})();
+
 const cartSlice = createSlice({
   name: "cart",
-  initialState: [],
+  initialState,
   reducers: {
     addItem: {
       reducer: (state, action) => {
@@ -68,7 +73,8 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItem, deleteItem, addOneCount, reduceOneCount } = cartSlice.actions;
+export const { addItem, deleteItem, addOneCount, reduceOneCount } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
 export const selectCartItems = (state) => state.cart;

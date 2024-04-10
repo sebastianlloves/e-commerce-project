@@ -3,8 +3,8 @@ import { getNewStateSizeChanging } from "../../utils/getNewStateUserSelection";
 import { getWithStockSizes } from "../../utils/getWithStockSizes";
 
 function SizeSelection({ userSelection, setUserSelection }) {
-  const { color, size } = userSelection;
-  const showedSizes = getWithStockSizes(color);
+  const { colorSelected, sizeSelected } = userSelection;
+  const showedSizes = getWithStockSizes(colorSelected);
 
   const createHandleClick = (newSize) => () =>
     setUserSelection(getNewStateSizeChanging(newSize, userSelection));
@@ -17,7 +17,7 @@ function SizeSelection({ userSelection, setUserSelection }) {
           return (
             <button
               key={showedSize.name}
-              className={getSizeButtonClasses(showedSize.name, size)}
+              className={getSizeButtonClasses(showedSize.name, sizeSelected)}
               onClick={createHandleClick(showedSize)}
             >
               {showedSize.name}

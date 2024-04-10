@@ -9,7 +9,10 @@ function ColorSelection({ userSelection, setUserSelection, colors }) {
   return (
     <>
       <h3 className="text-base font-semibold text-gray-900">
-        Color: <span className=" font-normal">{userSelection?.color?.name}</span>
+        Color:{" "}
+        <span className=" font-normal">
+          {userSelection?.colorSelected?.name}
+        </span>
       </h3>
       <div className="my-4 flex">
         {colors?.map((color) => (
@@ -18,7 +21,7 @@ function ColorSelection({ userSelection, setUserSelection, colors }) {
             className={getColorButtonClasses(
               COLOR_CLASSES,
               color,
-              userSelection.color
+              userSelection.colorSelected
             )}
             onClick={createHandleClick(color)}
           ></button>
