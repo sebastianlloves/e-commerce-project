@@ -1,4 +1,5 @@
-export const URL_API_PRODUCTS = "https://mock-api-git-main-sebastianlloves-projects.vercel.app/products"
+export const URL_API_PRODUCTS =
+  "https://mock-api-git-main-sebastianlloves-projects.vercel.app/products";
 
 export const MENU_OPTIONS = [
   { title: "Indumentaria", value: "clothes" },
@@ -15,4 +16,3 @@ export const COLOR_CLASSES = {
   Marrón: "bg-amber-950/80",
   Verde: "bg-green-800/80",
 };
-
