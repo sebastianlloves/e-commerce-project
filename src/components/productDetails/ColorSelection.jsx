@@ -10,11 +10,11 @@ function ColorSelection({ userSelection, setUserSelection, colors }) {
     <>
       <h3 className="text-base font-semibold text-gray-900">
         Color:{" "}
-        <span className=" font-normal">
+        <span className="font-normal">
           {userSelection?.colorSelected?.name}
         </span>
       </h3>
-      <div className="my-4 flex">
+      <div className="flex items-start">
         {colors?.map((color) => (
           <button
             key={color.name}
