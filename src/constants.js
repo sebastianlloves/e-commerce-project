@@ -15,4 +15,6 @@ export const COLOR_CLASSES = {
   Azul: "bg-blue-900/80",
   Marrón: "bg-amber-950/80",
   Verde: "bg-green-800/80",
+  Plata: "bg-slate-500/80",
+  Oro: "bg-yellow-600/80",
 };
